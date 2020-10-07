@@ -558,7 +558,8 @@
             <IsSequence>False</IsSequence>
             <Layers>2 32</Layers>
             <Delay>-1</Delay>
-            <Comment> </Comment>
+            <Comment>
+            </Comment>
             <EventsNumber>1</EventsNumber>
             <StartTrigger>0</StartTrigger>
             <StopTrigger>0</StopTrigger>
@@ -707,7 +708,8 @@
             <IsSequence>False</IsSequence>
             <Layers>2 32</Layers>
             <Delay>-1</Delay>
-            <Comment> </Comment>
+            <Comment>
+            </Comment>
             <EventsNumber>2</EventsNumber>
             <StartTrigger>0</StartTrigger>
             <StopTrigger>0</StopTrigger>
