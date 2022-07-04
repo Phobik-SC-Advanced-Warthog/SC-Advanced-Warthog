@@ -1,0 +1,296 @@
+js1_slider2         v_mining_throttle
+
+
+DX1     attack1_group1
+        toggle_mining_laser_fire
+        invoke_ping
+DX2     attack1_group2
+DX3     
+DX4     weapon_launch_missile
+DX5     
+DX6     target_tracking_auto_zoom
+DX7     
+DX8
+DX9
+DX10
+DX11
+DX12
+DX13
+DX14
+DX15
+DX16
+DX17
+DX18        
+DX19        target_match_vel
+DX20        accel_range_up
+DX21        accel_range_down
+DX22        
+DX23        view_dynamic_zoom_rel_in
+DX24        view_dynamic_zoom_rel_out
+DX25        view_zoom_out
+DX26        view_zoom_in
+DX27        toggle_mining_laser_type
+DX28        
+DX29        increase_mining_throttle
+DX30        decrease_mining_throttle
+DX31        inc_ping_focus_angle
+DX32        dec_ping_focus_angle
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------//
+//  USB KEY DEFINITIONS                                                                                                                              //
+//---------------------------------------------------------------------------------------------------------------------------------------------------//
+
+USB_A           strafe_left                     // [  4] a or A
+USB_B           toggle_quantum_mode             // [  5] b or B
+                toggle_qdrive_spooling          
+USB_C           ifcs_toggle_cruise_control      // [  6] c or C
+                turret_recenter
+L_ALT+USB_C     ifcs_toggle_speed_limiter
+USB_D           strafe_right                    // [  7] d or D
+USB_E           roll_right                      // [  8] e or E
+                turret_toggle_esp
+USB_F           view_interact                   // [  9] f or F
+USB_G           turret_gyromode                 // [ 10] g or G
+                weapon_cycle_aimmode
+                weapon_increase_max_missiles
+L_ALT+USB_G     weapon_manual_gimbal_cycle_source
+                weapon_reset_max_missiles
+R_ALT+USB_G     weapon_manual_gimbal_lock_vector
+USB_H           weapon_countermeasure_decoy_launch // [ 11] h or H
+L_ALT+USB_H     weapon_countermeasure_decoy_burst_decrease
+R_ALT+USB_H     weapon_countermeasure_decoy_burst_increase
+USB_I           power_toggle_thrusters                                // [ 12] i or I
+USB_J           weapon_countermeasure_noise_launch // [ 13] j or J
+L_ALT+USB_J     jettison_volatile_cargo
+USB_K           toggle_vtol                  // [ 14] k or K
+L_ALT+USB_K     toggle_all_doors
+USB_L           v_lights
+R_ALT+USB_L     toggle_all_doorlocks         // [ 15] l or L
+L_ALT+USB_L     look_ahead_enable
+USB_M           toggle_mining_mode           // [ 16] m or M
+USB_N      toggle_landing_system / autoland  // [ 17] n or N
+                toggle_docking_mode
+                invoke_docking
+USB_O           power_toggle_shields                             // [ 18] o or O
+L_ALT+USB_O     ifcs_toggle_esp
+USB_P           power_toggle_weapons                             // [ 19] p or P
+USB_Q           roll_left                    // [ 20] q or Q
+                turret_toggle_mouse_mode
+USB_R           flightready                  // [ 21] r or R
+L_ALT+USB_R     target_cycle_selection_fwd
+R_ALT+USB_R     target_cycle_selection_reset
+USB_S           strafe_back                  // [ 22] s or S
+                turret_limiter_rel_decrease
+USB_T           target_cycle_in_view_fwd     // [ 23] t or T
+                target_cycle_in_view_reset
+L_ALT+USB_T     target_unlock_selected                
+R_ALT+USB_T     target_cycle_reticle_mode
+USB_U           power_toggle                             // [ 24] u or U
+USB_U+L_SHIFT   emergency_exit
+USB_V                                        // [ 25] v or V
+L_ALT+USB_V     ifcs_toggle_gforce_safety
+USB_W           strafe_forward               // [ 26] w or W
+                turret_limiter_rel_increase
+USB_X           v_space_brake                // [ 27] x or X
+USB_Y           exit                         // [ 28] y or Y
+                turret_remote_exit
+R_ALT+USB_Y     v_eject
+USB_Z           view_freelook_mode           // [ 29] z or Z
+L_ALT+USB_Z     view_look_behind
+USB_1       target_toggle_lock_index_1       // [ 30] 1 or !
+L_ALT+USB_1 target_toggle_pin_index_1
+L_ALT+USB_1 mining_use_consumable1
+USB_2       target_toggle_lock_index_2       // [ 31] 2 or @
+L_ALT+USB_2 target_toggle_pin_index_2
+L_ALT+USB_2 v_mining_use_consumable2
+USB_3       target_toggle_lock_index_3       // [ 32] 3 or #
+L_ALT+USB_3 target_toggle_pin_index_3
+L_ALT+USB_3
+USB_4       target_cycle_attacker_fwd        // [ 33] 4 or $
+L_ALT+USB_4 target_cycle_attacker_reset
+USB_5       target_cycle_hostile_fwd         // [ 34] 5 or %
+L_ALT+USB_5 target_cycle_hostile_reset
+USB_6       target_cycle_friendly_fwd        // [ 35] 6 or ^
+L_ALT+USB_6 target_cycle_friendly_reset
+USB_7       target_cycle_all_fwd             // [ 36] 7 or &
+L_ALT+USB_7 target_cycle_all_reset
+USB_8       target_cycle_subitem_fwd         // [ 37] 8 or *
+L_ALT+USB_8 target_cycle_subitem_reset
+USB_9       target_hail                      // [ 38] 9 or (
+USB_0       dock_toggle_view                 // [ 39] 0 or )
+L_ALT+USB_0 target_remove_all_pins
+USB_RETURNORENTER                            // [ 40] Return (Enter)
+USB_ESCAPE                                   // [ 41] Escape
+USB_DELETEORBACKSPACE self_destruct          // [ 42] Delete (Backspace)
+USB_TAB          toggle_scan_mode            // [ 43] Tab
+USB_SPACEBAR     strafe_up                   // [ 44] Spacebar
+USB_HYPHEN                                   // [ 45] - or _
+USB_EQUALSIGN                                // [ 46] = or +
+USB_OPENBRACKET                              // [ 47] [ or {
+USB_CLOSEBRACKET                             // [ 48] ] or }
+USB_BACKSLASH                                // [ 49] \ or |
+USB_NONUSPOUND                               // [ 50] Non-US # or _
+USB_SEMICOLON                                // [ 51] ; or :
+USB_QUOTE                                    // [ 52] ' or "
+USB_GRAVEACCENTANDTILDE                      // [ 53] Grave Accent and Tilde
+USB_COMMA    dec_ping_focus_angle            // [ 54] , or <
+L_ALT+USB_COMMA  toggle_relative_mouse_mode
+USB_RIGHTCONTROL+USB_COMMA
+USB_PERIOD  inc_ping_focus_angle             // [ 55] . or >
+L_ALT+USB_PERIOD  toggle_yaw_roll_swap  
+USB_SLASH                                    // [ 56] / or ?
+USB_CAPSLOCK                                 // [ 57] Caps Lock
+USB_F1                                       // [ 58] F1
+USB_F2                                       // [ 59] F2
+USB_F3                                       // [ 60] F3
+USB_F4              view_cycle_fwd            // [ 61] F4
+L_CTL+F4            view_mode
+USB_F5 capacitor_assignment_weapon_combined_increase_max                                      // [ 62] F5
+USB_F6 capacitor_assignment_engine_combined_increase_max                                     // [ 63] F6
+USB_F7                                       // [ 64] F7
+USB_F8 capacitor_assignment_reset                                      // [ 65] F8
+USB_F9  power_throttle_down                                     // [ 66] F9
+        power_throttle_min
+USB_F10 power_throttle_up                                    // [ 67] F10
+        power_throttle_max
+USB_F11                                      // [ 68] F11
+USB_F12                                      // [ 69] F12
+USB_PRINTSCREEN                              // [ 70] Print Screen
+USB_SCROLLLOCK                               // [ 71] Scroll Lock
+USB_PAUSE                                    // [ 72] Pause
+USB_INSERT                                   // [ 73] Insert
+USB_HOME                                     // [ 74] Home
+USB_PAGEUP                                   // [ 75] Page Up
+USB_DELETEFORWARD                            // [ 76] Delete Forward
+USB_END                                      // [ 77] End
+USB_PAGEDOWN                                 // [ 78] Page Down
+USB_RIGHTARROW                               // [ 79] Right Arrow
+USB_LEFTARROW                                // [ 80] Left Arrow
+USB_DOWNARROW                                // [ 81] Down Arrow
+USB_UPARROW                                  // [ 82] Up Arrow
+USB_KP_NUMLOCK                               // [ 83] Keypad NumLock or Clear
+USB_KP_SLASH                                 // [ 84] Keypad /
+USB_KP_ASTERISK                              // [ 85] Keypad *
+USB_KP_HYPHEN                                // [ 86] Keypad -
+USB_KP_PLUS                                  // [ 87] Keypad +
+USB_KP_ENTER                                 // [ 88] Keypad Enter
+USB_KP_1  shield_raise_level_down            // [ 89] Keypad 1 or End
+USB_KP_2  shield_raise_level_back            // [ 90] Keypad 2 or Down Arrow
+USB_KP_3                                     // [ 91] Keypad 3 or Page Down
+USB_KP_4  shield_raise_level_left            // [ 92] Keypad 4 or Left Arrow
+USB_KP_5  shield_reset_level                 // [ 93] Keypad 5
+USB_KP_6  shield_raise_level_right           // [ 94] Keypad 6 or Right Arrow
+USB_KP_7  shield_raise_level_up              // [ 95] Keypad 7 or Home
+L_ALT+USB_KP_7  cooler_throttle_down
+USB_KP_8  shield_raise_level_forward         // [ 96] Keypad 8 or Up Arrow
+L_ALT+USB_KP_8  cooler_throttle_up
+USB_KP_9                                     // [ 97] Keypad 9 or Page Up
+USB_KP_0                                     // [ 98] Keypad 0 or Insert
+USB_KP_PERIOD                                // [ 99] Keypad . or Delete
+USB_NONUSBACKSLASH                           // [100] Non-US \ or |
+USB_APPLICATION                              // [101] Application
+USB_POWER                                    // [102] Power
+USB_KP_EQUALSIGN                             // [103] Keypad =
+USB_F13                                      // [104] F13
+USB_F14                                      // [105] F14
+USB_F15                                      // [106] F15
+USB_F16                                      // [107] F16
+USB_F17                                      // [108] F17
+USB_F18                                      // [109] F18
+USB_F19                                      // [110] F19
+USB_F20                                      // [111] F20
+USB_F21                                      // [112] F21
+USB_F22                                      // [113] F22
+USB_F23                                      // [114] F23
+USB_F24                                      // [115] F24
+USB_EXECUTE                                  // [116] Execute
+USB_HELP                                     // [117] Help
+USB_MENU                                     // [118] Menu
+USB_SELECT                                   // [119] Select
+USB_STOP                                     // [120] Stop
+USB_AGAIN                                    // [121] Again
+USB_UNDO                                     // [122] Undo
+USB_CUT                                      // [123] Cut
+USB_COPY                                     // [124] Copy
+USB_PASTE                                    // [125] Paste
+USB_FIND                                     // [126] Find
+USB_MUTE                                     // [127] Mute
+USB_VOLUMEUP                                 // [128] Volume Up
+USB_VOLUMEDOWN                               // [129] Volume Down
+USB_LOCKINGCAPSLOCK                          // [130] Locking Caps Lock
+USB_LOCKINGNUMLOCK                           // [131] Locking Num Lock
+USB_LOCKINGSCROLLLOCK                        // [132] Locking Scroll Lock
+USB_KP_COMMA                                 // [133] Keypad Comma
+USB_KP_EQUALSIGNAS400                        // [134] Keypad Equal Sign for AS/400
+USB_INTERNATIONAL1                           // [135] International1
+USB_INTERNATIONAL2                           // [136] International2
+USB_INTERNATIONAL3                           // [137] International3
+USB_INTERNATIONAL4                           // [138] International4
+USB_INTERNATIONAL5                           // [139] International5
+USB_INTERNATIONAL6                           // [140] International6
+USB_INTERNATIONAL7                           // [141] International7
+USB_INTERNATIONAL8                           // [142] International8
+USB_INTERNATIONAL9                           // [143] International9
+USB_LANG1                                    // [144] LANG1
+USB_LANG2                                    // [145] LANG2
+USB_LANG3                                    // [146] LANG3
+USB_LANG4                                    // [147] LANG4
+USB_LANG5                                    // [148] LANG5
+USB_LANG6                                    // [149] LANG6
+USB_LANG7                                    // [150] LANG7
+USB_LANG8                                    // [151] LANG8
+USB_LANG9                                    // [152] LANG9
+USB_ALTERNATEERASE                           // [153] AlternateErase
+USB_SYSREQORATTENTION                        // [154] SysReq/Attention
+USB_CANCEL                                   // [155] Cancel
+USB_CLEAR                                    // [156] Clear
+USB_PRIOR                                    // [157] Prior
+USB_RETURN                                   // [158] Return
+USB_SEPARATOR                                // [159] Separator
+USB_OUT                                      // [160] Out
+USB_OPER                                     // [161] Oper
+USB_CLEARORAGAIN                             // [162] Clear/Again
+USB_CRSELORPROPS                             // [163] CrSel/Props
+USB_EXSEL                                    // [164] ExSel
+USB_LEFTCONTROL         strafe_down          // [225]Left Control
+USB_LEFTSHIFT           afterburner          // [226] Left Shift
+                        turret_limiter_toggle
+USB_LEFTALT                                  // [227] Left Alt
+USB_LEFTGUI                                  // [228] Left GUI
+USB_RIGHTCONTROL                             // [229] Right Control
+USB_RIGHTSHIFT          lock_rotation        // [230] Right Shift
+USB_RIGHTALT                                 // [231] Right Alt
+USB_RIGHTGUI                                 // [232] Right GUI
+                      
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// REFERENCE: USB KEY DEFINITIONS //																															//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//																																								//
+//	A	USB[0x04]		1	USB[0x1E]		ENTER		USB[0x28]		PRINT SCREEN	USB[0x46]		NUMPAD /	USB[0x54]		F1		USB[0x3A]			//
+//	B	USB[0x05]		2	USB[0x1F]		ESCAPE		USB[0x29]		SCROLL LOCK		USB[0x47]		NUMPAD *	USB[0x55]		F2		USB[0x3B]			//
+//	C	USB[0x06]		3	USB[0x20]		BACKSPACE	USB[0x2A]		PAUSE/BREAK		USB[0x48]		NUMPAD -	USB[0x56]		F3		USB[0x3C]			//
+//	D	USB[0x07]		4	USB[0x21]		TAB			USB[0x2B]		NUM LOCK		USB[0x53]		NUMPAD +	USB[0x57]		F4		USB[0x3D]			//
+//	E	USB[0x08]		5	USB[0x22]		SPACE		USB[0x2C]		INSERT			USB[0x49]		NUMPAD ENT	USB[0x58]		F5		USB[0x3E]			//
+//	F	USB[0x09]		6	USB[0x23]		- _			USB[0x2D]		HOME			USB[0x4A]		NUMPAD 1	USB[0x59]		F6		USB[0x3F]			//
+//	G	USB[0x0A]		7	USB[0x24]		= +			USB[0x2E]		PAGE UP			USB[0x4B]		NUMPAD 2	USB[0x5A]		F7		USB[0x40]			//
+//	H	USB[0x0B]		8	USB[0x25]		[ {			USB[0x2F]		DELETE			USB[0x4C]		NUMPAD 3	USB[0x5B]		F8		USB[0x41]			//
+//	I	USB[0x0C]		9	USB[0x26]		] }			USB[0x30]		END				USB[0x4D]		NUMPAD 4	USB[0x5C]		F9		USB[0x42]			//
+//	J	USB[0x0D]		0	USB[0x27]		\ | 		USB[0x31]		PAGE DOWN		USB[0x4E]		NUMPAD 5	USB[0x5D]		F10		USB[0x43]			//
+//	K	USB[0x0E]							EUROPE1**	USB[0x32]										NUMPAD 6	USB[0x5E]		F11		USB[0x44]			//
+//	L	USB[0x0F]							; :			USB[0x33]		RIGHT ARROW		USB[0x4F]		NUMPAD 7	USB[0x5F]		F12		USB[0x45]			//
+//	M	USB[0x10]							' "			USB[0x34]		LEFT ARROW		USB[0x50]		NUMPAD 8	USB[0x60]		F13		USB[0x68]			//
+//	N	USB[0x11]							` ~			USB[0x35]		DOWN ARROW		USB[0x51]		NUMPAD 9	USB[0x61]		F14		USB[0x69]			//
+//	O	USB[0x12]							, <			USB[0x36]		UP ARROW		USB[0x52]		NUMPAD 0	USB[0x62]		F15		USB[0x6A]			//
+//	P	USB[0x13]							. >			USB[0x37]										NUMPAD .	USB[0x63]		F16		USB[0x6B]			//
+//	Q	USB[0x14]							/ ?			USB[0x38]		MUTE			USB[0x7F]		NUMPAD =	USB[0x67]		F17		USB[0x6C]			//
+//	R	USB[0x15]							CAPS LOCK	USB[0x39]		VOL UP			USB[0x80]									F18		USB[0x6D]			//
+//	S	USB[0x16]														VOL DOWN		USB[0x81]									F19		USB[0x6E]			//
+//	T	USB[0x17]							L_CTL		USB[0xE0]																	F20		USB[0x6F]			//
+//	U	USB[0x18]							L_SHIFT		USB[0xE1]		EUROPE2**		USB[0x64]									F21		USB[0x70]			//
+//	V	USB[0x19]							L_ALT		USB[0xE2]		APPLICATION		USB[0x65]									F22		USB[0x71]			//
+//	W	USB[0x1A]							L_WIN		USB[0xE3]		POWER			USB[0x66]									F23		USB[0x72]			//
+//	X	USB[0x1B]							R_CTL		USB[0xE4]																	F24		USB[0x73]			//
+//	Y	USB[0x1C]							R_SHIFT		USB[0xE5]																								//
+//	Z	USB[0x1D]							R_ALT		USB[0xE6]																								//
+//											R_WIN		USB[0xE7]	** Further Special Keyboard Commands on page 54/60 of Target Script Editor Manual **		//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//

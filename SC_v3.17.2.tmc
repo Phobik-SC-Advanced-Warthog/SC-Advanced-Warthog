@@ -1,0 +1,793 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// INCLUDED FILES                                                                                                                                               //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+include "target.tmh"
+include "SC_USBKeyMap.ttm"
+include "SC_KeyMap_v3_17.ttm"
+include "SC_Variables_v3_17.tmh"
+include "SC_UserPrefs_v3_17.tmh"
+include "SC_Defaults_v3_17.tmh"
+include "SC_Hardware_v3_17.tmh"
+include "SC_Functions_v3_17.tmh"
+include "SC_Macros_v3_17.tmh"
+include "SC_LED_v3_17.tmh"
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// START-UP:  / MAIN                                                                                                                                            //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+int main()
+    {
+
+    Configure(&HCougar, MODE_EXCLUDED);
+    Configure(&JoystickF18, MODE_EXCLUDED);
+    Configure(&T16000, MODE_EXCLUDED);          //Enable here and Bindings are at the end of this file
+    Configure(&T16000L, MODE_EXCLUDED);         // Left Stick settings below would need to be duplicated this is not implemented
+    Configure(&TWCSThrottle, MODE_EXCLUDED);
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  BASE SETTINGS                                                                                                                                               //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+    SetKBRate(PulseTime, DelayTime);
+    SetKBLayout(KBLayout);
+
+    // FUNCTION START
+
+    initPrintState();
+
+    // End Init And Unlock Control
+
+    StartupLock = 0;
+
+    // Exclude Un-Initialized MFD
+
+    if (UseMFD == 0)
+    {
+        Configure(&LMFD, MODE_EXCLUDED);
+        Configure(&RMFD, MODE_EXCLUDED);
+    }
+
+    // Initialize Pedal Assignments
+    // This is not used Filter mode to apply custum curves is causing axix home problems
+    // Home of Crazy Ivan
+    // Rudders=0 is used for all until a fix can be found
+
+    //if (RUDDERS == 3)
+    //{
+    //    Configure(&TFRPRudder, MODE_EXCLUDED);
+    //    Configure(&TFRPHARudder, MODE_FILTERED);
+    //}
+    //else if (RUDDERS == 2)
+    //{
+    //    Configure(&TFRPHARudder, MODE_EXCLUDED);
+    //    Configure(&TFRPRudder, MODE_FILTERED);
+    //}
+    //else if (RUDDERS == 1)
+    //{
+    //    Configure(&TFRPRudder, MODE_EXCLUDED);
+    //    Configure(&TFRPHARudder, MODE_EXCLUDED);
+    //}
+    //else
+    //{
+    //    Configure(&TFRPRudder, MODE_EXCLUDED);
+    //    Configure(&TFRPHARudder, MODE_EXCLUDED);
+    //}
+
+Configure(&TFRPRudder, MODE_EXCLUDED);
+Configure(&TFRPHARudder, MODE_EXCLUDED);
+
+    
+    if (Init(&EventHandle))
+        return 1;
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// Initialize MFD Assignments                                                                                                                                   //
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+    if (UseMFD > 0)
+    {
+        if (DebugMode | DebugMMode) printf("Initialising Right MFD\x0a");
+        initRightMFD();
+    }
+    if (UseMFD > 1)
+    {
+        if (DebugMode | DebugMMode) printf("Initialising Left  MFD\x0a");
+        initLefthtMFD();
+    }
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// Initialize the Joystick & Throttle AXIS Assignments                                                                                                          //
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+    initJoystickAxis();         // Bind Stick Axis
+    initSetJoystickCurves();    // Init using custom curves
+    initThrottleAxis();         //
+    initSetThrottleCurves();    // Init Custom Curves
+
+    initLEDStates();
+    initLEDController(3);       // Start LED Lighting
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// JOYSTICK FUNCTION ASSIGNMENTS                                                                                                                                //
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  Shift States                                                                                                                                                //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// Basic Mapping is in place just to get flying Commands need to be broken out more by functions
+
+// PSF: Offensive Combat Functions
+// PSM: Normal Operations
+// PSB: Ground and Ship operations Cockpit/3rd Person View 
+// EACON: PC Interaction Mode
+
+// I = S4
+// O = S4 Release
+// U/M/D = PSF PSM PSB
+
+    SetShiftButton(&Joystick, S4, &Throttle, PSF, PSB);
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--JOYSTICK BUTTON---------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- FIRE CONTROL -- //
+
+    MapKeyIOUMD(&Joystick, TG1,                                                              // Joystick TG1
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                attack1_group1, // fire group 1                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                toggle_mining_laser_fire);                                                                      // PSB, if shift button Out
+
+
+    MapKeyIOUMD(&Joystick, TG2,                                                              // Joystick TG2
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                attack1_group2, // fire group 2                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+
+    toggle_fire_group();                                                                                        // TG1 and S1 depend on RDRALT position
+
+    MapKeyIOUMD(&Joystick, S1,                                                              // Joystick S1
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                weapon_toggle_ai,                                                                               // PSM, if shift button In
+                weapon_countermeasure_noise_launch,                                                             // PSM, if shift button Out
+                pc_focus,                                                                                       // PSB, if shift button In
+                toggle_mining_laser_type);                                                                      // PSB, if shift button Out
+
+    MapKeyIOUMD(&Joystick, S2,                                                              // Joystick S2
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                weapon_toggle_launch_missile,                                                                           // PSM, if shift button In
+                TEMPO(PULSE + toggle_missile_mode,  weapon_launch_missile, MediumPulseDelay),                    // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                TEMPO(PULSE + toggle_scan_mode,  invoke_ping, MediumPulseDelay));                               // PSB, if shift button Out
+
+    MapKeyIOUMD(&Joystick, S3,                                                              // Joystick S3
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                weapon_countermeasure_decoy_launch,                                                             // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                PULSE + toggle_mining_mode);                                                                    // PSB, if shift button Out
+
+// S4 Used as Shift Button Leave Un Mapped
+// MapKey(&Joystick, S4, DX4);                                  // Fire Group 4
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--JOYSTICK HAT------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Trim Switch -- //
+
+    MapKeyIOUMD(&Joystick, H1U,                                                             // Trim Switch UP
+                0,                                                                                              // PSF, if shift button In
+                inc_ping_focus_angle,                                                                           // PSF, if shift button Out
+                view_zoom_in,                                                                                   // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                view_zoom_in,                                                                                   // PSB, if shift button In
+                view_pitch_up);                                                                                 // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H1D,                                                             // Trim Switch DOWN
+                0,                                                                                              // PSF, if shift button In
+                dec_ping_focus_angle,                                                                           // PSF, if shift button Out
+                view_zoom_out,                                                                                  // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                view_zoom_out,                                                                                  // PSB, if shift button In
+                view_pitch_down);                                                                               // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H1L,                                                             // Trim Switch LEFT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                view_dynamic_zoom_rel_in,                                                                       // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                view_dynamic_zoom_rel_in,                                                                       // PSB, if shift button In
+                view_yaw_left);                                                                                 // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H1R,                                                             // Trim Switch RIGHT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                view_dynamic_zoom_rel_out,                                                                      // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                view_dynamic_zoom_rel_out,                                                                      // PSB, if shift button In
+                view_yaw_right);                                                                                // PSB, if shift button Out
+
+// -- Target Management Switch (TMS) -- //
+
+    MapKeyIOUMD(&Joystick, H2U,                                                             // Hat 2 UP
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                TEMPO(PULSE + target_cycle_subitem_fwd, PULSE + target_cycle_subitem_back, MediumPulseDelay),   // PSM, if shift button In
+                TEMPO(PULSE + target_cycle_in_view_fwd, PULSE + target_cycle_selection_reset, MediumPulseDelay),// PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H2D,                                                             // Hat 2 DOWN
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                target_cycle_subitem_reset,                                                                     // PSM, if shift button In
+                TEMPO(PULSE + target_cycle_attacker_fwd, PULSE + target_cycle_attacker_reset, MediumPulseDelay),// PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H2L,                                                             // Hat 2 LEFT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                TEMPO(PULSE + target_cycle_pinned_fwd, PULSE + target_cycle_pinned_back, MediumPulseDelay),     // PSM, if shift button In
+                TEMPO(PULSE + target_cycle_friendly_fwd, PULSE + target_cycle_friendly_back, MediumPulseDelay), // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H2R,                                                             // Hat 2 RIGHT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                TEMPO(PULSE + target_cycle_all_fwd, PULSE + target_cycle_all_back, MediumPulseDelay),           // PSM, if shift button In
+                TEMPO(PULSE + target_cycle_hostile_fwd, PULSE + target_cycle_hostile_back, MediumPulseDelay),   // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+
+// -- Data Management Switch (DMS) -- //
+
+// Subsystem, Pinned Target and HUD select management
+
+    MapKeyIOUMD(&Joystick, H3U,                                                             // Hat 3 UP
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                toggle_scan_mode,                                                                               // PSM, if shift button In
+                TEMPO(PULSE + look_ahead_enable, PULSE + look_ahead_start_target_tracking, ShortPulseDelay),    // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                enter_remote_turret_2);                                                                         // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H3D,                                                             // Hat 3 Down
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                scanning_trigger_scan,                                                                          // PSM, if shift button In
+                target_cycle_reticle_mode,                                                                      // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H3L,                                                             // Hat 3 LEFT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                target_tracking_auto_zoom,                                                                      // PSM, if shift button In
+                0,                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                enter_remote_turret_1);                                                                         // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H3R,                                                             // Hat 3 RIGHT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                target_remove_all_pins,                                                                         // PSM, if shift button In
+                weapon_cycle_aimmode,                                                                           // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                enter_remote_turret_3);                                                                         // PSB, if shift button Out
+
+// -- Countermeasures Management Switch (CMS) -- //
+
+    MapKeyIOUMD(&Joystick, H4U,                                                             // Hat 4 Up
+                target_toggle_pin_index_2,                                                                      // PSF, if shift button In
+                target_toggle_lock_index_2,                                                                     // PSF, if shift button Out
+                0,                                                                      // PSM, if shift button In
+                shield_raise_level_forward,                                                                     // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                pc_screen_focus_up);                                                                            // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H4R,                                                             // Hat 4 Right
+                target_toggle_pin_index_3,                                                                      // PSF, if shift button In
+                target_toggle_lock_index_3,                                                                     // PSF, if shift button Out
+                0,                                                                    // PSM, if shift button In
+                shield_raise_level_right,                                                                       // PSM, if shift button Out
+                PULSE + power_toggle_shields,                                                                   // PSB, if shift button In
+                pc_screen_focus_right);                                                                         // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H4D,                                                             // Hat 4 Down
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                  // PSM, if shift button In
+                shield_raise_level_back,                                                                        // PSM, if shift button Out
+                PULSE + power_toggle_thrusters,                                                                 // PSB, if shift button In
+                pc_screen_focus_down);                                                                          // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H4L,                                                             // Hat 4 Left
+                target_toggle_pin_index_1,                                                                      // PSF, if shift button In
+                target_toggle_lock_index_1,                                                                     // PSF, if shift button Out
+                0,                                                                    // PSM, if shift button In
+                shield_raise_level_left,                                                                        // PSM, if shift button Out
+                PULSE + power_toggle_weapons,                                                                   // PSB, if shift button In
+                pc_screen_focus_left);                                                                          // PSB, if shift button Out
+    MapKeyIOUMD(&Joystick, H4P,                                                             // Hat 4 Push
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                      // PSM, if shift button In
+                shield_reset_level,                                                                             // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                pc_select);                                                                                     // PSB, if shift button Out
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  MAP THROTTLE ARM CONTROLS                                                                                                                                   //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+//  Strafe Up/Down/Lateral Should be mapped to Axis in game to Throttle mouse in all configurations.
+
+// If RUDDER is 0:
+
+    if (!RUDDERS)
+    {
+        printf("No rudders.. set in config Roll must be manuall mapped\x0a");
+
+    }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE ARM BUTTON-----------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+    MapKeyIOUMD(&Throttle, SC,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                0,                                                                                                              // PSM, if shift button In
+                0,                                                                                                              // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                0);                                                                                                             // PSB, if shift button Out
+
+//  -------------------------Left Throttle Button (RED) LTB
+
+    MapKeyIOUMD(&Throttle, LTB,
+                0,                                                                                                              // PSF, if shift button In
+                visor_wipe,                                                                                                     // PSF, if shift button Out
+                TEMPO(PULSE + strafe_longitudinal_invert, PULSE + strafe_longitudinal_invert, ShortPulseDelay),                 // PSM, if shift button In
+                toggle_vtol,                                                                                                    // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                toggle_vtol);                                                                                                   // PSB, if shift button Out
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE ARM HAT--------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+//  -- Mic Switch -- //
+
+    MapKeyUMD(&Throttle, MSD, power_throttle_down, shield_raise_level_down, 0); // Decrease Power / Shield Bot
+    MapKeyIOUMD(&Throttle, MSU,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                power_throttle_up,                                                                                              // PSM, if shift button In
+                shield_raise_level_up,                                                                                          // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                0);                                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, MSD,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                power_throttle_down,                                                                                            // PSM, if shift button In
+                shield_raise_level_down,                                                                                        // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                0);                                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, MSL,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                target_hail,                                                                                                    // PSM, if shift button In
+                TrackIRCenter,                                                                                                  // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                toggle_relative_mouse_mode);                                                                                    // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, MSR,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                view_freelook_mode,                                                                                             // PSM, if shift button In
+                target_match_vel,                                                                                               // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                0);                                                                                                             // PSB, if shift button Out
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  -- Push to Talk & Comms ------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Mic Switch MSP -- //
+
+    MapKey(&Throttle, MSP, EXEC("initVoicePTT();"));
+    MapKeyR(&Throttle, MSP, EXEC("initVoicePTT();"));
+
+
+// -- Coolie Hat Switch -- //
+
+    MapKeyIOUMD(&Throttle, CSU,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                look_ahead_enable,                                                                                              // PSM, if shift button In
+                view_look_behind,                                                                                               // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                mining_use_consumable2);                                                                                        // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, CSD,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                0,                                                                                                              // PSM, if shift button In
+                TEMPO(PULSE + view_cycle_fwd, PULSE + view_mode, MediumPulseDelay),                                             // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                TEMPO(PULSE + view_cycle_fwd, PULSE + view_mode, MediumPulseDelay));                                           // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, CSL,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                0,                                                                                                              // PSM, if shift button In
+                0,                                                                                                              // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                mining_use_consumable1);                                                                                        // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, CSR,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                0,                                                                                                              // PSM, if shift button In
+                0,                                                                                                              // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                mining_use_consumable3);                                                                                        // PSB, if shift button Out
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE ARM SWITCH-----------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Speedbrake -- //
+
+    MapKey(&Throttle, SPDF, v_space_brake);
+    MapKey(&Throttle, SPDB, afterburner);
+
+// -- Boat Switch -- //
+
+    MapKey(&Throttle, BSB, EXEC("initToggleDecouple();"));                                                                      // Decouple
+    MapKey(&Throttle, BSM, EXEC("initToggleDecouple(); set_throttle_norm();"));                                                 // Coupled  (BSM on)
+    MapKey(&Throttle, BSF, EXEC("initToggleDecouple(); set_throttle_strafe();"));                                               // Decouple and enable longitudinal strafe on THR
+
+// -- China Hat -- //
+
+    MapKey(&Throttle, CHB, TEMPO(PULSE + ifcs_toggle_gforce_safety,                                                             // Short:
+                                 PULSE + ifcs_toggle_speed_limiter, MediumPulseDelay));                                         // Long:
+    MapKey(&Throttle, CHF, TEMPO(PULSE + ifcs_toggle_esp,                                                                       // Short:
+                                 PULSE + ifcs_toggle_cruise_control, MediumPulseDelay));                                        // Long:
+
+// -- Pinky Throttle -- //
+
+// PSF PSB Used for Mode Selection
+// Extra Functions to apply durring mode seclection can be mapped to Binds Here
+
+//    MapKey(&Throttle, PSB, DOWN + );
+//    MapKeyR(&Throttle, PSB, UP + );
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  MAP THROTTLE BASE CONTROLS                                                                                                                                  //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE BASE TRHOTTLE--------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Throttle Idle Detents LEFT -- //
+
+    MapKey(&Throttle, IDLELON, 0);
+    MapKey(&Throttle, IDLELOFF, 0);
+
+// -- Throttle Idle Detents RIGHT -- //
+
+// -- Engine Power Off (Pull back on throttle) -- //
+
+    MapKey(&Throttle, IDLERON, PULSE + power_toggle_thrusters);
+    MapKey(&Throttle, IDLEROFF, PULSE + power_toggle_thrusters);
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE BASE BUTTON----------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Landing Gear/ Warning Horn Silence Button LDGH -- //
+
+    MapKeyIOUMD(&Throttle, LDGH,
+                0,                                                                                // PSF, if shift button In
+                0,                                                                                // PSF, if shift button Out
+                jettison_volatile_cargo,                                                          // PSM, if shift button In
+                TEMPO(PULSE + toggle_quantum_mode, toggle_qdrive_engagement, ShortPulseDelay), // PSM, if shift button Out
+                0,                                                                                // PSB, if shift button In
+                v_lights);                                                                        // PSB, if shift button Out
+
+
+//  ----- Autopilot Engage Button Six States Controlled by ALT/HDG Select-----  //
+
+    MapKey(&Throttle,  APENG, TEMPO(EXEC("initAPmode(AP_SHORT);"), EXEC("initAPmode(AP_LONG);"), MediumPulseDelay));
+    MapKeyR(&Throttle, APENG, EXEC("initAPmode(AP_RELEASE);"));
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE BASE SWITCH----------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- FLAPS - Map Throttle to Joystick Curve Presets -- //
+
+    MapKey(&Throttle, FLAPU, EXEC("initSetJoystickCurves();"));
+    MapKeyR(&Throttle, FLAPU, EXEC("initSetJoystickCurves();"));
+    MapKey(&Throttle, FLAPM, 0);
+    MapKey(&Throttle, FLAPD, EXEC("initSetJoystickCurves();"));
+    MapKeyR(&Throttle, FLAPD, EXEC("initSetJoystickCurves();"));
+
+// -- Autopilot Select Switch -- //
+
+// Function for APPAT APALT controls modes set on APENG
+
+    MapKey(&Throttle, APPAT, 0);
+    MapKeyR(&Throttle, APPAT, 0);
+    MapKey(&Throttle, APALT, 0);
+    MapKey(&Throttle, APDIS, 0);
+    MapKey(&Throttle, APAH, 0);
+
+// -- Engine Fuel Flow Switches LEFT (EFLNORM/EFLOVER) -- //
+
+    MapKey(&Throttle, EFLNORM, 0);
+    MapKeyR(&Throttle, EFLNORM, 0);
+
+// -- Engine Fuel Flow Switches RIGHT (EFRNORM/EFROVER) -- //
+
+    MapKey(&Throttle,  EFRNORM, PULSE + toggle_yaw_roll_swap);
+    MapKeyR(&Throttle, EFRNORM, PULSE + toggle_yaw_roll_swap);
+
+// -- Engine Operate Ign/Norm LEFT -- //
+
+
+
+    MapKey(&Throttle, EOLIGN, toggle_contact);
+    MapKey(&Throttle, EOLNORM, 0);
+    MapKey(&Throttle, EOLMOTOR, 0);
+    MapKeyR(&Throttle, EOLMOTOR, 0);
+
+// -- Engine Operate Ign/Norm RIGHT -- //
+
+    MapKey(&Throttle, EORNORM, 0);
+    MapKey(&Throttle,  EORMOTOR, PULSE + mobiglas);
+    MapKeyR(&Throttle, EORMOTOR, PULSE + mobiglas);
+    MapKey(&Throttle, EORIGN, PULSE + starmap);
+
+// -- APU Start APUON/APUOFF -- //
+
+// -- EJECT EJECT EJECT -- //
+
+    MapKey(&Throttle, APUON, TEMPO(0, PULSE + eject, EJECT_DELAY)); // EJECT 2 sec delay
+    MapKey(&Throttle, APUOFF, PULSE + 'x');                         // Reset (x)
+
+// -- EAC EACON/EACOFF -- //
+
+    MapKey(&Throttle, EACON, DOWN + pc_interaction_mode);   // Hold Action
+    MapKey(&Throttle, EACOFF,  UP + pc_interaction_mode);   // Release Action
+
+// -- RDR ALTM RDRNRM/RDRDIS -- //
+
+    MapKey(&Throttle, RDRNRM, EXEC("toggle_fire_group();")); // Swap TG1 and TG2 group assignments
+    MapKey(&Throttle, RDRDIS, EXEC("toggle_fire_group();"));
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--T16000 Mapping------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Hat Switch -- //
+
+    MapKeyIOUMD(&T16000, H1U,                                                             // Trim Switch UP
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, H1D,                                                             // Trim Switch DOWN
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, H1L,                                                             // Trim Switch LEFT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, H1R,                                                             // Trim Switch RIGHT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+
+// -- Stick Buttons -- //
+
+    MapKeyIOUMD(&T16000, TS1,                                                             // Stick Trigger
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, TS2,                                                             // Stick Button 2
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, TS3,                                                             // Stick Button 3
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, TS4,                                                             // Stick Button 4
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+// -- Base Buttons -- //
+
+    MapKeyIOUMD(&T16000, B5,                                                             // Base Button 5
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B6,                                                             // Base Button 6
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B7,                                                             // Base Button 7
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B8,                                                             // Base Button 8
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B9,                                                             // Base Butto 9
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B10,                                                             // Base Button 10
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B11,                                                             // Base Button 11
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B12,                                                             // Base Button 12
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B13,                                                             // Base Button 13
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B14,                                                             // Base Button 14
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B15,                                                             // Base Button 15
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B16,                                                             // Base Button 16
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  EVENT HANDLER                                                                                                                                               //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+int EventHandle(int type, alias o, int x)
+    {
+
+    int dev = x;
+    int THR_FC_AxisLight;
+
+    // Throttle & MFD : On-The-FLy Backlight Control
+    if(&o == &Throttle & x == THR_FC & Joystick[S4])      //HOLD S4 on Joystick & Move Throttle Friction Control Axis
+    {
+        THR_FC_AxisLight = (AxisVal(Throttle[THR_FC], &axdata) - 32766) / 256 * -1;
+        vThrottleLightBackup = THR_FC_AxisLight;
+        vRMFDLightBackup     = THR_FC_AxisLight;
+        vLMFDLightBackup     = THR_FC_AxisLight;
+        initBACKLIGHT(Throttle_BL, vThrottleLightBackup);
+        initBACKLIGHT(RMFD_BL, vRMFDLightBackup);
+        initBACKLIGHT(LMFD_BL, vLMFDLightBackup);
+    }
+
+// This Takes Axis Data from Connected Controllers and Passes Through Axis to bypass 8 Axis DX Limit
+// Also Applies Custom Curves to match Stick and Throttle to exported axis
+
+//    if (&o == &TFRPRudder)
+//  {
+//
+//      GetAxisData(&o, x);
+//        if (axdata.val == TRPRIGHT)
+//            dev = TRPRIGHT;
+//        else if (axdata.val == TRPLEFT)
+//            dev = TRPLEFT;
+//
+//        axdata.val = AxisVal(o[x], &axdata);
+//        GameOutput(&o, dev, AxisVal(o[x], &axdata));
+//        return 0;
+//    }
+//    else if (&o == &TFRPHARudder)
+//    {
+//
+ //       GetAxisData(&o, x);
+ //       if (axdata.val == TFRPHA_RIGHT)
+//            dev = TFRPHA_RIGHT;
+//        else if (axdata.val == TFRPHA_LEFT)
+//            dev = TFRPHA_LEFT;
+//        else if (axdata.val == TFRPHA_RUDDER)
+//            dev = TFRPHA_RUDDER;
+
+//        axdata.val = AxisVal(o[x], &axdata);
+//        GameOutput(&o, dev, AxisVal(o[x], &axdata));
+//        return 0;
+//    }
+//    else if (&o == &T16000)
+//    {
+
+//        GetAxisData(&o, x);
+//        if (axdata.val == JOYY)
+//            dev = JOYY;
+//        else if (axdata.val == JOYX)
+//            dev = JOYX;
+//        else if (axdata.val == THROTTLE)
+//            dev = THROTTLE;
+//        else if (axdata.val == RUDDER)
+//            dev = RUDDER;
+
+//        axdata.val = AxisVal(o[x], &axdata);
+//        GameOutput(&o, dev, AxisVal(o[x], &axdata));
+ //       return 0;
+//    }
+    DefaultMapping(&o, x);
+}

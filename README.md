@@ -1,1 +1,0 @@
-sc-advanced-warthog

@@ -1,0 +1,52 @@
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// DEFAULT SETTINGS //                              // ** YOU SHOULDN'T NEED TO CHANGE THESE DEFAULTS STORED IN THIS FILE **                                    //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+define ADVersionMajor       3               // Script Version Major Value           ie. 3.x.x
+define ADVersionMinor       14              // Script Version Minor Value           ie. x.4.x
+define ADVersionPoint       0               // Script Version Point Update          ie. x.x.5
+
+int    profile =            1;              // Set initial joystick profile global variable for joystick curves	(Options 0, 1, 2) (default = 1)
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// DEFAULT TIMINGS                                                                                                                                              //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  PRESS & PULSE DELAY SETTINGS                                                                                                                                //
+//  Note :      define : no ";" at the END of the Line                                                                                                          //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+    define PulseTime          25            // PULSE+ Delay time       (ms)    (default = 25ms)
+    define DelayTime          75            // D() Delay time          (ms)    (default = 75ms)
+
+    //PRESS DELAY (Keys)
+    define MiniPressDelay    150             //Shortest Delay 150
+    define ShortPressDelay   250             //Shorter Delay 250
+    define MediumPressDelay  350             //Medium Delay 350
+    define LongPressDelay    500             //Long Delay 500
+    define ExtraPressDelay  1500             //Longest Delay 1500
+
+    //PULSE DELAY (Macro/Other)
+    define MiniPulseDelay    150             //Shortest Delay 150
+    define ShortPulseDelay   250             //Shorter Delay 250
+    define MediumPulseDelay  350             //Medium Delay 350
+    define LongPulseDelay    500             //Long Delay 500
+    define ExtraPulseDelay  2000             //Longest Delay 2000
+
+    define ChatKeyRepeatTime	70           // Auto-Text Chat Preset time   (ms)                        (default = 70ms)
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+// DEFAULT STATES (1 = Yes, 0 = No)          // VARIABLE DESCRIPTION & USAGE                                                                                     //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+            // *[Set your toggles before you start Star Citizen to align default toggle states]*
+            //  NOTE: If your switches aren't set to match, then you may need to use a toggle override, or have to do an extra key toggle/key press to "catch up"
+
+int AxisCurveMod;                            // Initiates variable to be used for custom axis curve preset on Throttle.      (used in initSetThrottleCurves())
+int StartupLock           = 1;               // Script Loading Function Lock (During Boot of Script this flag will prevent some code from triggering keystrokes)
+int APSeqLong             = 0;               // Tracks Long Press for Autopilot Engage Button
+int APSeqShort            = 0;               // Tracks Short Press for Autopilot Engage Button
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//

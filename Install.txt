@@ -24,12 +24,12 @@ There are empty slots availible for mapping. Still testing what works best so th
 This Script acts as a complete rebind of the Star Citizen Keymap using as mostly default Keys and adding Modifiers.
 There are a couple unbound DX Buttons still availible for use.
 
-Commands have keymap bindings in (SC_KeyMap_v3_11.ttm) and just need to be added to buttons in (SC_v3.11.0.tmc)
+Commands have keymap bindings in (SC_KeyMap_v3_17.ttm) and just need to be added to buttons in (SC_v3.17.2.tmc)
 Some commands need to be verified still. 
 
-** Controller Buttons with no command mapped do dot send any output to game when Pressed all commands are mapped in SC_v3.10.0.tmc **
+** Controller Buttons with no command mapped do dot send any output to game when Pressed all commands are mapped in SC_v3.14.0.tmc **
 
-All Controller Axis are now saved in layout_SC_3_11_Advanced_Warthog.xml
+All Controller Axis are now saved in layout_SC_3_17_Advanced_Warthog.xml
 Edit XML to change this setting now. (Can be rebound in game)
 
 
@@ -44,24 +44,24 @@ This has good joystick id tools and will grab and export all the default xml fro
 
 Script Files and uses are:
 
-StarCitizen XML File. -> layout_SC_3_11_Advanced_Warthog.xml
+StarCitizen XML File. -> layout_SC_3_17_Advanced_Warthog.xml
 
-Shortcuts are then mapped to Command Defines in -> SC_KeyMap_v3_11.tmh
+Shortcuts are then mapped to Command Defines in -> SC_KeyMap_v3_17.tmh
 
-Commands are bound to Controller in -> SC_v3.11.0.tmc
+Commands are bound to Controller in -> SC_v3.17.2.tmc
 
 To remove all Conflicts this profile should be loaded after Loading all default controls in Game.
 
 To maintain all functions Two Files Must Match
 
-layout_SC_3_11_Advanced_Warthog.xml       (In Game Binding) ** Edit the XML do not rebind in game **
-SC_KeyMap_v3_11.ttm                       (Binding Defines for Controls)
+layout_SC_3_17_Advanced_Warthog.xml       (In Game Binding) ** Edit the XML do not rebind in game **
+SC_KeyMap_v3_17.ttm                       (Binding Defines for Controls)
 
 All edits to one must be matched in the other.
 
 
 
-*** Not Needed any Longer *** Rudders are configured in SC_UserPrefs_v3_10.tmh
+*** Not Needed any Longer *** Rudders are configured in SC_UserPrefs_v3_17.tmh
 
 Thrustmaster Rudders and T1600 axis are passed through as additional devices in the event handler.
 This lets other device axis be used without using 1 of the virtual 8 for the combined device.
@@ -70,38 +70,38 @@ This lets other device axis be used without using 1 of the virtual 8 for the com
 Section 1 Files
 ---------------
 
-layout_SC_3_11_Advanced_Warthog.xml          Game Bindings
+layout_SC_3_17_Advanced_Warthog.xml            Game Bindings
 
-SC_KeyMap_v3_11.ttm                            Script Command Defines
+SC_KeyMap_v3_17.ttm                            Script Command Defines
 SC_USBKeyMap.ttm                               Script USB Key Code Defines
 
 
-SC 3.11 Binding Map.pdf                        Output From target GUI in layout view
+SC 3.17 Binding Map.pdf                        Output From target GUI in layout view
 
 Buttons with a heavy line indicate too many controls to display see list below.
 
-SC 3.11 Binding Map Complete Table.pdf         There are too many bindings for the GUI to output now so this is a complete list
+SC 3.17 Binding Map Complete Table.pdf         There are too many bindings for the GUI to output now so this is a complete list
 
-SC_v3.11.0                                     Main Profile (Controls are Mapped Here)
-SC_UserPrefs_v3_11                             Set Script Options
-SC_Defaults_v3_11                              Values for Timings
-SC_Variables_v3_11                             State and Script Variables
-SC_Hardware_v3_11                              Axis and Curves Binding Functions
-SC_Functions_v3_11                             Button Functions 
-SC_Macros_v3_11                                Function Macro's
-SC_LED_v3_11                                   LED Functions
-SC 3.11 Binding Map.fcf                        Load in the GUI to edit and print PDF of Bindings
+SC_v3.17.0                                     Main Profile (Controls are Mapped Here)
+SC_UserPrefs_v3_17                             Set Script Options
+SC_Defaults_v3_17                              Values for Timings
+SC_Variables_v3_17                             State and Script Variables
+SC_Hardware_v3_17                              Axis and Curves Binding Functions
+SC_Functions_v3_17                             Button Functions 
+SC_Macros_v3_17                                Function Macro's
+SC_LED_v3_17                                   LED Functions
+SC 3.17 Binding Map.fcf                        Load in the GUI to edit and print PDF of Bindings
 
 Section 2 Install
 -----------------
 
 1.  Extract Folder to known Directory
-2.  Copy layout_SC_3_11_Advanced_Warthog.xml to your Star Citizen Controller Mappings Folder
-3.  Edit SC_UserPrefs_v3_11.tmh (Defaults should work for most)
-4.  Load SC_v3.11.0.tmc in target script editor and run
+2.  Copy layout_SC_3_17_Advanced_Warthog.xml to your Star Citizen Controller Mappings Folder
+3.  Edit SC_UserPrefs_v3_17.tmh (Defaults should work for most)
+4.  Load SC_v3.17.2.tmc in target script editor and run
 5.  Launch Star Citizen
-6.  Load layout_SC_3_11_Advanced_Warthog.xml
-7.  Bind All Controller Axis in Game (see Map in Section 3)(Default Binds added to XML can skip)
+6.  Load layout_SC_3_17_Advanced_Warthog.xml
+7.  *** Skip ***** Bind All Controller Axis in Game (see Map in Section 3)(Default Binds added to XML can skip)
 8.  Go Fly
 
 Section 3 Notes
@@ -124,11 +124,11 @@ This will force Joy1 to set correct.
 
 or the Voodoo Option (pp_resortdevices joystick 1 2)
 
-SC_KeyMap_v3_10.ttm can be imported into the target GUI and used to map shortcuts and Print SC_KeyMap
-SC_KeyMap_v3_10.ttm can also be Imported In GUI and used to map key binds if you wanted to not run full script
+SC_KeyMap_v3_17.ttm can be imported into the target GUI and used to map shortcuts and Print SC_KeyMap
+SC_KeyMap_v3_17.ttm can also be Imported In GUI and used to map key binds if you wanted to not run full script
 Doing this will give you the full List of Commands listed in groups.
 
-To Rebind Controls open SC_v3.11.0.tmc find the control you want to change and replace with new Define from SC_KeyMap_v3_11.ttm
+To Rebind Controls open SC_v3.17.0.tmc find the control you want to change and replace with new Define from SC_KeyMap_v3_14.ttm
 
 *** Mapping ***
 
