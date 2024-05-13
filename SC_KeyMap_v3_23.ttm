@@ -1,0 +1,763 @@
+//  -- 05/12/2024 --
+//  ** Star Citizen Keybinds **
+
+// This File Should Match Game Binds
+// Spacing is what gets the Script to list correctly when importedd into GUI
+// 
+
+/// Action                                                   Binding
+
+
+//  seat_general **********************
+
+
+define eject R_ALT+USB_Y                                        // Eject - explosively propels the pilot out of the cockpit
+define emergency_exit USB_U+L_SHIFT
+define operator_mode_cycle_back ''
+define operator_mode_cycle_forward
+define set_flight_mode ''
+define set_guns_mode ''
+define set_mining_mode ''
+define set_missile_mode ''
+define set_quantum_mode ''
+define set_salvage_mode ''
+define set_scan_mode ''
+define toggle_flight_mode ''
+define toggle_guns_mode ''
+define toggle_mining_mode USB_M
+define toggle_missile_mode ''
+define toggle_quantum_mode ''
+define toggle_salvage_mode USB_M
+define toggle_scan_mode USB_V
+define view_look_behind ''
+
+
+//  spaceship_general **********************
+
+
+define close_all_doors ''
+define cooler_throttle_down ''
+define cooler_throttle_up ''
+define flightready USB_RIGHTALT+USB_R
+define lock_all_doors ''
+define lock_all_ports ''
+define open_all_doors ''
+define self_destruct USB_DELETEORBACKSPACE
+define toggle_all_doorlocks ''
+define toggle_all_doors ''
+define toggle_all_portlocks ''
+define unlock_all_doors ''
+define unlock_all_ports ''
+
+
+// spaceship_view **********************
+
+define view_cycle_fwd USB_F4
+define view_dynamic_zoom_abs_toggle ''
+define view_dynamic_zoom_rel_in ''
+define view_dynamic_zoom_rel_out ''
+define view_freelook_mode USB_Z
+define view_mode ''
+define view_pitch_down DXHATDOWN                                // Look down - look below
+define view_pitch_up   DXHATUP                                  // Look up - look above
+define view_yaw_left   DXHATLEFT                                // Look left - look toward the left
+define view_yaw_right  DXHATRIGHT                               // Look right - look toward the right
+
+
+//  spaceship_movement **********************
+
+
+define accel_range_down ''
+define accel_range_up ''
+define afterburner ''
+define atc_loading_area_request ''
+define atc_request ''
+define auto_precision_mode_off ''
+define auto_precision_mode_on ''
+define auto_precision_mode_toggle ''
+define autoland ''
+define deploy_landing_system ''
+define ifcs_esp_hold ''
+define ifcs_gravity_compensation_off ''
+define ifcs_gravity_compensation_on ''
+define ifcs_gsafe_off ''
+define ifcs_gsafe_on ''
+define ifcs_speed_limiter_reset_scm ''
+define ifcs_throttle_set_normal ''
+define ifcs_throttle_set_sticky ''
+define ifcs_throttle_swap_mode ''
+define ifcs_toggle_esp ''
+define ifcs_toggle_gforce_safety ''
+define ifcs_toggle_gravity_compensation ''
+define ifcs_toggle_speed_limiter ''
+define ifcs_toggle_vector_decoupling ''
+define lock_rotation ''
+define master_mode_cycle ''
+define master_mode_cycle_long ''
+define pitch_down ''
+define pitch_up ''
+define retract_landing_system ''
+define roll_left USB_Q
+define roll_right USB_E
+define space_brake ''
+define speed_range_down ''
+define speed_range_up ''
+define strafe_back ''
+define strafe_down USB_LEFTCONTROL
+define strafe_forward ''
+define strafe_lateral ''
+define strafe_left USB_A
+define strafe_longitudinal_invert ''
+define strafe_right USB_D
+define strafe_trim_reset_long ''
+define strafe_trim_reset_short ''
+define strafe_trim_set_100_long ''
+define strafe_trim_set_100_short ''
+define strafe_trim_set_50_long ''
+define strafe_trim_set_50_short ''
+define strafe_trim_set_lon ''
+define strafe_trim_set_short ''
+define strafe_up USB_SPACEBAR
+define strafe_vertical ''
+define target_match_vel ''
+define toggle_jump_request ''
+define toggle_landing_system ''
+define toggle_relative_mouse_mode ''
+define toggle_vtol ''
+define toggle_yaw_roll_swap ''
+define transform_cycle ''
+define transform_deploy ''
+define transform_retract ''
+define yaw_left ''
+define yaw_right ''
+
+
+//  spaceship_quantum **********************
+
+
+define toggle_qdrive_engagement ''
+
+
+//  spaceship_docking **********************
+
+
+define dock_toggle_view ''
+define invoke_docking ''
+define toggle_docking_mode ''
+
+
+// spaceship_targeting **********************
+
+
+define auto_targeting_disable_long ''
+define auto_targeting_disable_short ''
+define auto_targeting_enable_long ''
+define auto_targeting_enable_short ''
+define auto_targeting_toggle_long ''
+define auto_targeting_toggle_short ''
+define enter_remote_turret_1 ''
+define enter_remote_turret_2 ''
+define enter_remote_turret_3 ''
+define look_ahead_enable ''
+define look_ahead_start_target_tracking ''
+define target_lock_selected ''
+define target_pin_selected ''
+define target_pin_selected_hold ''
+define target_remove_all_pins ''
+define target_toggle_lock_index_1 ''
+define target_toggle_lock_index_2 ''
+define target_toggle_lock_index_3 ''
+define target_toggle_pin_index_1 ''
+define target_toggle_pin_index_1_hold ''
+define target_toggle_pin_index_2 ''
+define target_toggle_pin_index_2_hold ''
+define target_toggle_pin_index_3 ''
+define target_toggle_pin_index_3_hold ''
+define target_tracking_auto_zoom ''
+define target_unlock ''
+define target_unpin_selected ''
+define target_unpin_selected_hold ''
+
+
+// spaceship_targeting_advanced **********************
+
+
+define target_cycle_all_back ''
+define target_cycle_all_fwd ''
+define target_cycle_all_reset ''
+define target_cycle_attacker_back ''
+define target_cycle_attacker_fwd ''
+define target_cycle_attacker_reset ''
+define target_cycle_friendly_back ''
+define target_cycle_friendly_fwd ''
+define target_cycle_friendly_reset ''
+define target_cycle_hostile_back ''
+define target_cycle_hostile_fwd ''
+define target_cycle_hostile_reset ''
+define target_cycle_in_view_back ''
+define target_cycle_in_view_fwd ''
+define target_cycle_in_view_reset ''
+define target_cycle_pinned_back ''
+define target_cycle_pinned_fwd ''
+define target_cycle_pinned_reset ''
+define target_cycle_subitem_back ''
+define target_cycle_subitem_fwd ''
+define target_cycle_subitem_reset ''
+define target_under_reticle ''
+
+
+// spaceship_target_hailing ****************
+
+
+define target_hail USB_9
+
+
+// spaceship_radar ****************
+
+
+define invoke_ping ''
+
+
+// spaceship_scanning **********************
+
+
+define dec_scan_focus_level ''
+define inc_scan_focus_level ''
+define scanning_trigger_scan ''
+
+
+// spaceship_mining **********************
+
+
+define decrease_mining_throttle ''
+define increase_mining_throttle ''
+define jettison_volatile_cargo ''
+define mining_use_consumable1 ''
+define mining_use_consumable2 ''
+define mining_use_consumable3 ''
+define toggle_mining_laser_fire ''
+define toggle_mining_laser_type ''
+
+
+// spaceship_salvage **********************
+
+
+define salvage_cycle_modifiers_focused ''
+define salvage_cycle_modifiers_left ''
+define salvage_cycle_modifiers_right ''
+define salvage_cycle_modifiers_structural ''
+define salvage_decrease_beam_spacing ''
+define salvage_focus_all_heads ''
+define salvage_focus_disintegrate ''
+define salvage_focus_fracture ''
+define salvage_focus_left ''
+define salvage_focus_right ''
+define salvage_increase_beam_spacing ''
+define salvage_nudge_down__left ''
+define salvage_nudge_down__right ''
+define salvage_nudge_left__left ''
+define salvage_nudge_left__right ''
+define salvage_nudge_right__left ''
+define salvage_nudge_right__right ''
+define salvage_nudge_up__lef ''
+define salvage_nudge_up__right ''
+define salvage_reset_gimbal ''
+define salvage_toggle_beam_spacing_axis ''
+define salvage_toggle_fire_disintegrate ''
+define salvage_toggle_fire_focused ''
+define salvage_toggle_fire_fracture ''
+define salvage_toggle_fire_left ''
+define salvage_toggle_fire_right ''
+define salvage_toggle_gimbal_mode ''
+
+
+// turret_movement ************************
+
+
+define turret_gyromode ''
+define turret_pitch_down ''
+define turret_pitch_up ''
+define turret_remote_exit ''
+define turret_toggle_mouse_mode ''
+define turret_yaw_left ''
+define turret_yaw_right ''
+
+
+// turret_advanced ************************
+
+
+define turret_change_firemode ''
+define turret_change_position ''
+define turret_esp_hold ''
+define turret_esp_toggle ''
+define turret_instant_zoom ''
+define turret_limiter_rel_decrease ''
+define turret_limiter_rel_increase ''
+define turret_limiter_toggle ''
+define turret_recenter ''
+
+
+// spaceship_weapons **********************
+
+
+define attack_all ''
+define attack_group1 ''
+define attack_group2 ''
+define weapon_ads_cycle_tracking ''
+define weapon_ads_hold ''
+define weapon_ads_stable_max_zoom_hold ''
+define weapon_ads_toggle ''
+define weapon_change_firemode ''
+define weapon_convergence_distance_rel_decrease ''
+define weapon_convergence_distance_rel_increase ''
+define weapon_convergence_distance_set_default ''
+define weapon_gimbal_mode_cycle_all ''
+define weapon_gimbal_mode_set_auto ''
+define weapon_gimbal_mode_set_auto_long ''
+define weapon_gimbal_mode_set_fixed ''
+define weapon_gimbal_mode_set_fixed_long ''
+define weapon_gimbal_mode_set_manual ''
+define weapon_gimbal_mode_set_manual_long ''
+define weapon_manual_gimbal_cycle_source ''
+define weapon_manual_gimbal_lock_vector ''
+define weapon_pip_combination_type_set_combined_weapon_group ''
+define weapon_pip_combination_type_set_single ''
+define weapon_pip_combination_type_toggle ''
+define weapon_pip_fade_off ''
+define weapon_pip_fade_on ''
+define weapon_pip_fade_toggle ''
+define weapon_pip_prec_line_off ''
+define weapon_pip_prec_line_on ''
+define weapon_pip_prec_line_toggle ''
+define weapon_pip_set_lag ''
+define weapon_pip_set_lead ''
+define weapon_pip_toggle_lead_lag ''
+define weapon_preset_attack ''
+define weapon_preset_next ''
+define weapon_preset_prev ''
+define weapon_suppress_aim_assists_hold ''
+define weapon_ui_scale_off ''
+define weapon_ui_scale_on ''
+define weapon_ui_scale_toggle ''
+
+
+// spaceship_missiles **********************
+
+
+define weapon_bombing_hud_range_decrease ''
+define weapon_bombing_hud_range_increase ''
+define weapon_bombing_hud_range_reset ''
+define weapon_bombing_toggle_desired_impact_point ''
+define weapon_bombing_toggle_desired_impact_point_hold ''
+define weapon_cycle_missile_back ''
+define weapon_cycle_missile_fwd ''
+define weapon_decrease_max_missiles ''
+define weapon_increase_max_missiles ''
+define weapon_launch_missile ''
+define weapon_launch_missile_cinematic ''
+define weapon_launch_missile_cinematic_hold ''
+define weapon_reset_max_missiles ''
+define weapon_toggle_launch_missile ''
+
+
+// spaceship_defensive **********************
+
+
+define shield_raise_level_back ''
+define shield_raise_level_down ''
+define shield_raise_level_forward ''
+define shield_raise_level_left ''
+define shield_raise_level_right ''
+define shield_raise_level_up ''
+define shield_reset_level ''
+define weapon_countermeasure_decoy_burst_decrease ''
+define weapon_countermeasure_decoy_burst_increase ''
+define weapon_countermeasure_decoy_launch ''
+define weapon_countermeasure_decoy_launch_panic ''
+define weapon_countermeasure_noise_launch ''
+
+
+// vehicle_capacitor_assignment ****************
+
+
+define capacitor_assignment_engine_combined_decrease_min ''
+define capacitor_assignment_engine_combined_increase_max ''
+define capacitor_assignment_engine_decrease ''
+define capacitor_assignment_engine_increase ''
+define capacitor_assignment_engine_max ''
+define capacitor_assignment_engine_min ''
+define capacitor_assignment_reset ''
+define capacitor_assignment_shield_combined_decrease_min ''
+define capacitor_assignment_shield_combined_increase_max ''
+define capacitor_assignment_shield_decrease ''
+define capacitor_assignment_shield_increase ''
+define capacitor_assignment_shield_max ''
+define capacitor_assignment_shield_min ''
+define capacitor_assignment_weapon_combined_decrease_min ''
+define capacitor_assignment_weapon_combined_increase_max ''
+define capacitor_assignment_weapon_decrease ''
+define capacitor_assignment_weapon_increase ''
+define capacitor_assignment_weapon_max ''
+define capacitor_assignment_weapon_min ''
+
+
+// spaceship_power **********************
+
+
+define power_set_off ''
+define power_set_on ''
+define power_set_shields_off ''
+define power_set_shields_on ''
+define power_set_thrusters_off ''
+define power_set_thrusters_on ''
+define power_set_weapons_off ''
+define power_set_weapons_on ''
+define power_throttle_down ''
+define power_throttle_max ''
+define power_throttle_min ''
+define power_throttle_up ''
+define power_toggle ''
+define power_toggle_shields ''
+define power_toggle_thrusters ''
+define power_toggle_weapons ''
+
+
+// spaceship_hud **********************
+
+
+define mobiglas ''
+define cycle_pitch_ladder_mode ''
+define hud_open_scoreboard ''
+define starmap ''
+define visor_wipe ''
+
+
+// lights_controller **********************
+
+
+define v_lights USB_L                                   // Headlights(Toggle) - turns on and off the ship's headlights
+
+
+// stopwatch **********************
+
+
+define stopwatch_reset ''
+define stopwatch_trigger ''
+
+
+// player **********************
+
+
+define ammoRepool ''
+define attack1 ''
+define consume ''
+define crouch ''
+define customize ''
+define downedRevivalRequest ''
+define drop ''
+define fixed_speed_decrement ''
+define fixed_speed_increment ''
+define force_respawn ''
+define free_thirdperson_camera ''
+define holster ''
+define inspect ''
+define jump ''
+define leanleft ''
+define leanright ''
+define ledgegrab ''
+define melee_AttackHeavyLeft ''
+define melee_AttackHeavyRight ''
+define melee_AttackLightLeft ''
+define melee_AttackLightRight ''
+define melee_AttackSyringeStab ''
+define melee_block ''
+define melee_dodgeBack ''
+define melee_dodgeLeft ''
+define melee_dodgeRight ''
+// define mobiglas ''
+define moveback ''
+define moveforward ''
+define moveleft ''
+define moveright ''
+define pl_hud_open_scoreboard ''
+define port_modification_selec ''
+define prone ''
+define reload ''
+define reloadSecondary ''
+define selectMeleeWeapon ''
+define selectUnarmedCombat ''
+define selectgadget ''
+define selectpistol ''
+define selectprimary ''
+define selectsecondary ''
+define ship_recall ''
+define sprint ''
+define stabilize ''
+define takedown_nonLethal ''
+define thirdperson ''
+define throw_overhand ''
+define throw_underhand ''
+define toggleAttachHelmet ''
+define toggleEquipHelmet ''
+define toggleHelmetState ''
+define toggle_flashlight ''
+// define starmap ''
+// define visor_wipe ''
+define walk ''
+define weapon_auxiliary_action ''
+// define weapon_change_firemode ''
+define weapon_melee ''
+define weapon_zeroing_decrease ''
+define weapon_zeroing_increase ''
+define zoom ''
+define zoom_in ''
+define zoom_out ''
+
+
+// prone **********************
+
+
+define prone_rollleft  USB_A
+define prone_rollright USB_D
+
+
+// tractor_beam **********************
+
+
+define tractor_beam_decrease_distance
+define tractor_beam_increase_distance
+
+
+// incapacitated **********************
+
+
+define incapacitatedRespawn
+
+
+// zero_gravity_eva **********************
+
+
+define eva_boost ''
+define eva_brake ''
+define eva_roll_left ''
+define eva_roll_right ''
+define eva_strafe_back ''
+define eva_strafe_down ''
+define eva_strafe_forward ''
+define eva_strafe_left ''
+define eva_strafe_right ''
+define eva_strafe_up ''
+define eva_toggle_headlook_mode ''
+define eva_view_pitch_down ''
+define eva_view_pitch_up ''
+define eva_view_yaw_left ''
+define eva_view_yaw_right ''
+
+
+// zero_gravity_traversal **********************
+
+
+define zgt_detach ''
+define zgt_launch ''
+define zgt_roll_left ''
+define zgt_roll_right ''
+
+
+// vehicle_General **********************
+
+
+// define mobiglas
+define v_attack_all  ''
+define v_attack_group1 ''
+define v_attack_group2 ''
+define v_close_all_doors ''
+define v_flightready ''
+define v_horn ''
+define v_lock_all_doors ''
+define v_lock_all_ports ''
+define v_open_all_doors ''
+define v_starmap ''
+define v_toggle_all_doorlocks ''
+define v_toggle_all_doors ''
+define v_toggle_all_portlocks ''
+define v_unlock_all_doors ''
+define v_unlock_all_ports ''
+define v_view_cycle_fwd ''
+define v_view_freelook_mode ''
+define v_view_pitch ''
+define v_view_yaw ''
+// define visor_wipe
+
+
+// vehicle_driver **********************
+
+
+define v_boost ''
+define v_brake ''
+define v_lock_rotation ''
+define v_mgv_switch_brake_on_idle ''
+define v_move ''
+define v_move_back ''
+define v_move_forward ''
+define v_pitch_down ''
+define v_pitch_up ''
+define v_view_dynamic_zoom_rel_in ''
+define v_view_dynamic_zoom_rel_out ''
+define v_yaw_left ''
+define v_yaw_right ''
+
+
+// spectator **********************
+
+
+define spectate_gen_nextmode ''
+define spectate_gen_prevmode ''
+define spectate_next_target ''
+define spectate_prev_target ''
+define spectate_toggle_hud ''
+define spectate_toggle_lock_target ''
+define spectate_zoom_in ''
+define spectate_zoom_out ''
+
+
+// default **********************
+
+
+define cycle_chat_lobby ''
+define focus_on_chat_textinput ''
+define notification_accept ''
+define notification_decline ''
+define pl_exit ''
+define respawn ''
+define toggle_chat ''
+define toggle_contact ''
+
+
+// ui_notification **********************
+
+
+define ui_notification_accept ''
+define ui_notification_decline ''
+define ui_notification_ignore ''
+
+
+// player_emotes *********************
+
+
+define emote_agree ''
+define emote_cs_forward ''
+define emote_cs_left ''
+define emote_cs_no ''
+define emote_cs_right ''
+define emote_cs_stop ''
+define emote_cs_yes ''
+
+
+// player_input_optical_tracking **********************
+
+define foip_cyclechannel USB_KP_PERIOD
+define foip_pushtotalk USB_KP_PLUS
+define foip_pushtotalk_proximity ''
+define foip_recalibrate USB_KP_ASTERISK
+define foip_viewownplayer USB_KP_HYPHEN
+define headtrack_enabled ''
+define headtrack_hold ''
+define headtrack_recenter_device ''
+
+
+// player_choice **********************
+
+
+define pc_camera_orbit ''
+define pc_focus ''
+define pc_interaction_mode ''
+define pc_interaction_select ''
+define pc_personal_back ''
+define pc_personal_thought ''
+define pc_pit_inventory ''
+define pc_pit_item_drop ''
+define pc_pit_looting ''
+define pc_pit_looting_toggle_view ''
+define pc_pit_looting_toggle_weapon_attachments ''
+define pc_pit_miningmode_actions ''
+define pc_pit_player_actions ''
+define pc_qs_consumables ''
+define pc_qs_grenades ''
+define pc_screen_focus_down ''
+define pc_screen_focus_left ''
+define pc_screen_focus_right ''
+define pc_screen_focus_up ''
+define pc_select ''
+define pc_zoom_in ''
+define pc_zoom_out ''
+
+
+// view_director_mode **********************
+
+
+define view_enable_camview_mode ''
+define view_load_view_1 ''
+define view_load_view_2 ''
+define view_load_view_3 ''
+define view_save_view_1 ''
+define view_save_view_2 ''
+define view_save_view_3 ''
+define view_save_view_4 ''
+define view_save_view_5 ''
+define view_switch_to_alternative ''
+
+
+
+// EXTERNAL BINDINGS **********************
+
+
+define ShowDiscordOverlay           ''                      // (Map this to your Discord Overlay hotkey - used to open/close Discord Overlay interface)
+define ShowDiscordChatViaOverlay    ''                      // (Map this to your Discord Chat Overlay hotkey - used to open Chat from within the Overlay interface))
+define ExternalVoiceCommsPTT_ALT    ''                      // (Map this to your Twitch/OBS/Youtube -> Secondary External PTT Key used with Modifier, mainly to support Streamers)
+define InternalVoiceCommsPTT        USB_KP_PLUS             //
+define ShowFramerate                ''                      //
+define HighResScreenshot            ''                      //
+
+
+// HMD **********************
+
+
+define HMDCenter                    ''                      //
+
+
+// TRACKIR **********************
+
+
+define TrackIRCenter                USB_F12                 //
+define TrackIRPause                 USB_PAUSE               //
+
+
+// Discord, TS3, MUMBLE, VENTRILO **********************
+
+
+define ExternalVoiceCommsPTT    USB_KP_PLUS                 // (Map this to your Discord/Ventrilo/Mumble/Skype/TS3/... PTT Key)
+
+
+// VOICE ATTACK **********************
+
+
+define ToggleVoiceAttackMic         ''                      //
+define ToggleVoiceAttackGlobal      ''                      //
+
+
+// NVIDIA SHADOWPLAY **********************
+
+
+define NVidiaCaptureVideo           ''                      // L_ALT+F9
+define NVidiaStreaming              ''                      // L_ALT+F8
+
+
+// AMD RELIVE **********************
+
+
+define AMDCaptureVideo              ''   // L_CTRL+L_SHIFT+R
+define AMDStreaming                 ''   // L_CTRL+L_SHIFT+G
+
+
+// EOF
+
