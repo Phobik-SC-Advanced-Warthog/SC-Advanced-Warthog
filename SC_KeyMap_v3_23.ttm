@@ -247,11 +247,11 @@ define salvage_cycle_modifiers_left ''
 define salvage_cycle_modifiers_right ''
 define salvage_cycle_modifiers_structural ''
 define salvage_decrease_beam_spacing ''
-define salvage_focus_all_heads ''
+define salvage_focus_all_heads USB_LEFTALT+USB_S
 define salvage_focus_disintegrate ''
-define salvage_focus_fracture ''
-define salvage_focus_left ''
-define salvage_focus_right ''
+define salvage_focus_fracture USB_LEFTALT+USB_W
+define salvage_focus_left USB_LEFTALT+USB_A
+define salvage_focus_right USB_LEFTALT+USB_D
 define salvage_increase_beam_spacing ''
 define salvage_nudge_down__left ''
 define salvage_nudge_down__right ''
@@ -274,27 +274,29 @@ define salvage_toggle_gimbal_mode USB_G
 // turret_movement ************************
 
 
-define turret_gyromode ''
+define turret_gyromode USB_E
 define turret_pitch_down ''
 define turret_pitch_up ''
-define turret_remote_exit ''
-define turret_toggle_mouse_mode ''
+define turret_remote_exit USB_Y
+define turret_toggle_mouse_mode USB_Q
 define turret_yaw_left ''
 define turret_yaw_right ''
+define turret_remote_cycle_next USB_D
+define turret_remote_cycle_prev USB_A
 
 
 // turret_advanced ************************
 
 
 define turret_change_firemode ''
-define turret_change_position ''
+define turret_change_position USB_S
 define turret_esp_hold ''
 define turret_esp_toggle ''
-define turret_instant_zoom ''
+define turret_instant_zoom USB_LEFTSHIFT
 define turret_limiter_rel_decrease ''
 define turret_limiter_rel_increase ''
 define turret_limiter_toggle ''
-define turret_recenter ''
+define turret_recenter USB_C
 
 
 // spaceship_weapons **********************
@@ -311,15 +313,15 @@ define weapon_change_firemode ''
 define weapon_convergence_distance_rel_decrease ''
 define weapon_convergence_distance_rel_increase ''
 define weapon_convergence_distance_set_default ''
-define weapon_gimbal_mode_cycle_all ''
+define weapon_gimbal_mode_cycle_all USB_G
 define weapon_gimbal_mode_set_auto ''
 define weapon_gimbal_mode_set_auto_long ''
 define weapon_gimbal_mode_set_fixed ''
 define weapon_gimbal_mode_set_fixed_long ''
 define weapon_gimbal_mode_set_manual ''
 define weapon_gimbal_mode_set_manual_long ''
-define weapon_manual_gimbal_cycle_source ''
-define weapon_manual_gimbal_lock_vector ''
+define weapon_manual_gimbal_cycle_source USB_LEFTALT+USB_G
+define weapon_manual_gimbal_lock_vector USB_RIGHTALT+USB_G
 define weapon_pip_combination_type_set_combined_weapon_group ''
 define weapon_pip_combination_type_set_single ''
 define weapon_pip_combination_type_toggle ''
@@ -347,34 +349,34 @@ define weapon_ui_scale_toggle ''
 define weapon_bombing_hud_range_decrease ''
 define weapon_bombing_hud_range_increase ''
 define weapon_bombing_hud_range_reset ''
-define weapon_bombing_toggle_desired_impact_point ''
+define weapon_bombing_toggle_desired_impact_point USB_LEFTALT+USB_B
 define weapon_bombing_toggle_desired_impact_point_hold ''
 define weapon_cycle_missile_back ''
 define weapon_cycle_missile_fwd ''
 define weapon_decrease_max_missiles ''
-define weapon_increase_max_missiles ''
+define weapon_increase_max_missiles USB_G
 define weapon_launch_missile ''
 define weapon_launch_missile_cinematic ''
 define weapon_launch_missile_cinematic_hold ''
-define weapon_reset_max_missiles ''
+define weapon_reset_max_missiles USB_LEFTALT+USB_G
 define weapon_toggle_launch_missile ''
 
 
 // spaceship_defensive **********************
 
 
-define shield_raise_level_back ''
-define shield_raise_level_down ''
-define shield_raise_level_forward ''
-define shield_raise_level_left ''
-define shield_raise_level_right ''
-define shield_raise_level_up ''
-define shield_reset_level ''
-define weapon_countermeasure_decoy_burst_decrease ''
-define weapon_countermeasure_decoy_burst_increase ''
-define weapon_countermeasure_decoy_launch ''
+define shield_raise_level_back USB_KP_2
+define shield_raise_level_down USB_KP_1
+define shield_raise_level_forward USB_KP_8
+define shield_raise_level_left USB_KP_4
+define shield_raise_level_right ''USB_KP_6
+define shield_raise_level_up USB_KP_7
+define shield_reset_level USB_KP_5
+define weapon_countermeasure_decoy_burst_decrease USB_LEFTALT+USB_H
+define weapon_countermeasure_decoy_burst_increase USB_RIGHTALT+USB_H
+define weapon_countermeasure_decoy_launch USB_H
 define weapon_countermeasure_decoy_launch_panic ''
-define weapon_countermeasure_noise_launch ''
+define weapon_countermeasure_noise_launch USB_J
 
 
 // vehicle_capacitor_assignment ****************
@@ -383,20 +385,20 @@ define weapon_countermeasure_noise_launch ''
 define capacitor_assignment_engine_combined_decrease_min ''
 define capacitor_assignment_engine_combined_increase_max ''
 define capacitor_assignment_engine_decrease ''
-define capacitor_assignment_engine_increase ''
+define capacitor_assignment_engine_increase USB_F6
 define capacitor_assignment_engine_max ''
 define capacitor_assignment_engine_min ''
-define capacitor_assignment_reset ''
+define capacitor_assignment_reset USB_F8
 define capacitor_assignment_shield_combined_decrease_min ''
 define capacitor_assignment_shield_combined_increase_max ''
 define capacitor_assignment_shield_decrease ''
-define capacitor_assignment_shield_increase ''
+define capacitor_assignment_shield_increase USB_F7
 define capacitor_assignment_shield_max ''
 define capacitor_assignment_shield_min ''
 define capacitor_assignment_weapon_combined_decrease_min ''
 define capacitor_assignment_weapon_combined_increase_max ''
 define capacitor_assignment_weapon_decrease ''
-define capacitor_assignment_weapon_increase ''
+define capacitor_assignment_weapon_increase USB_F5
 define capacitor_assignment_weapon_max ''
 define capacitor_assignment_weapon_min ''
 
@@ -412,14 +414,14 @@ define power_set_thrusters_off ''
 define power_set_thrusters_on ''
 define power_set_weapons_off ''
 define power_set_weapons_on ''
-define power_throttle_down USB_S
+define power_throttle_down USB_F9
 define power_throttle_max ''
 define power_throttle_min ''
-define power_throttle_up USB_W
-define power_toggle ''
-define power_toggle_shields ''
-define power_toggle_thrusters ''
-define power_toggle_weapons ''
+define power_throttle_up USB_F10
+define power_toggle USB_U
+define power_toggle_shields USB_O
+define power_toggle_thrusters USB_I
+define power_toggle_weapons USB_P
 
 
 // spaceship_hud **********************
@@ -474,7 +476,11 @@ define melee_block ''
 define melee_dodgeBack ''
 define melee_dodgeLeft ''
 define melee_dodgeRight ''
+
+
 // define mobiglas ''
+
+
 define moveback ''
 define moveforward ''
 define moveleft ''
