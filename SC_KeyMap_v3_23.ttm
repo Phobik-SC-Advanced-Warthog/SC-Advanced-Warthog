@@ -369,7 +369,7 @@ define shield_raise_level_back USB_KP_2
 define shield_raise_level_down USB_KP_1
 define shield_raise_level_forward USB_KP_8
 define shield_raise_level_left USB_KP_4
-define shield_raise_level_right ''USB_KP_6
+define shield_raise_level_right USB_KP_6
 define shield_raise_level_up USB_KP_7
 define shield_reset_level USB_KP_5
 define weapon_countermeasure_decoy_burst_decrease USB_LEFTALT+USB_H

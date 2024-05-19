@@ -141,7 +141,7 @@ Configure(&TFRPHARudder, MODE_EXCLUDED);
                 0,                                                                                              // PSF, if shift button In
                 0,                                                                                              // PSF, if shift button Out
                 0,                                                                                              // PSM, if shift button In
-                attack1_group1, // fire group 1                                                                 // PSM, if shift button Out
+                attack_group1, // fire group 1                                                                 // PSM, if shift button Out
                 0,                                                                                              // PSB, if shift button In
                 toggle_mining_laser_fire);                                                                      // PSB, if shift button Out
 
@@ -150,7 +150,7 @@ Configure(&TFRPHARudder, MODE_EXCLUDED);
                 0,                                                                                              // PSF, if shift button In
                 0,                                                                                              // PSF, if shift button Out
                 0,                                                                                              // PSM, if shift button In
-                attack1_group2, // fire group 2                                                                 // PSM, if shift button Out
+                attack_group2, // fire group 2                                                                 // PSM, if shift button Out
                 0,                                                                                              // PSB, if shift button In
                 0);                                                                                             // PSB, if shift button Out
 

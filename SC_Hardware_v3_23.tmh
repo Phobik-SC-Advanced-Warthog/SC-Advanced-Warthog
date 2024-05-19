@@ -64,13 +64,13 @@
     int toggle_fire_group(){
        // int secondary_fire = 0;
         if (Throttle[RDRNRM]) {                                 // Normal
-        MapKey(&Joystick, TG1, attack1_group1);                 // fire group 1
-        MapKey(&Joystick, TG2, attack1_group2);
+        MapKey(&Joystick, TG1, attack_group1);                 // fire group 1
+        MapKey(&Joystick, TG2, attack_group2);
             if (DebugMode) printf("RDRNRM: Weapon Group 1 on TG1, Weapon Group 2 on H4P\x0a");
     }
         else {
-            MapKey(&Joystick, TG1, attack1_group2);             // fire group 2
-            MapKey(&Joystick, TG2, attack1_group1);
+            MapKey(&Joystick, TG1, attack_group2);             // fire group 2
+            MapKey(&Joystick, TG2, attack_group1);
             if (DebugMode) printf("RDRDIS: Weapon Group 2 on TG1, Weapon Group 1 on H4P\x0a");
         }
     }
