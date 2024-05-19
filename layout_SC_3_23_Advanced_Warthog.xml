@@ -44,7 +44,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_operator_mode_cycle_forward">
-   <rebind input="kb1_mouse3"/>
+   <rebind input="kb1_1"/>
   </action>
   <action name="v_set_flight_mode">
    <rebind input="kb1_ralt+r"/>
@@ -74,7 +74,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_toggle_mining_mode">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_m"/>
    <rebind input="js2_ "/>
   </action>
   <action name="v_toggle_missile_mode">
@@ -85,10 +85,10 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_toggle_salvage_mode">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_m"/>
   </action>
   <action name="v_toggle_scan_mode">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_v"/>
    <rebind input="js2_ "/>
   </action>
   <action name="v_view_look_behind">
@@ -106,7 +106,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_flightready">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_ralt+r"/>
   </action>
   <action name="v_lock_all_doors">
    <rebind input="kb1_ "/>
@@ -118,7 +118,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_self_destruct">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_backspace"/>
   </action>
   <action name="v_toggle_all_doorlocks">
    <rebind input="kb1_ "/>
@@ -127,7 +127,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_toggle_all_portlocks">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_ralt+k"/>
   </action>
   <action name="v_unlock_all_doors">
    <rebind input="kb1_ "/>
@@ -157,15 +157,19 @@
   </action>
   <action name="v_view_pitch_down">
    <rebind input="kb1_ "/>
+   <rebind input="js1_hat1_down" multiTap="1"  />
   </action>
   <action name="v_view_pitch_up">
    <rebind input="kb1_ "/>
+   <rebind input="js1_hat1_up" multiTap="1"  />
   </action>
   <action name="v_view_yaw_left">
    <rebind input="kb1_ "/>
+   <rebind input="js1_hat1_left" multiTap="1"  />
   </action>
   <action name="v_view_yaw_right">
    <rebind input="kb1_ "/>
+   <rebind input="js1_hat1_right" multiTap="1"  />
   </action>
  </actionmap>
  <actionmap name="spaceship_movement">
@@ -176,14 +180,14 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_afterburner">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lshift"/>
    <rebind input="js2_ "/>
   </action>
   <action name="v_atc_loading_area_request">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_ralt+n"/>
   </action>
   <action name="v_atc_request">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+n"/>
   </action>
   <action name="v_auto_precision_mode_off">
    <rebind input="kb1_ "/>
@@ -192,10 +196,10 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_auto_precision_mode_toggle">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+c"/>
   </action>
   <action name="v_autoland">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_n"/>
    <rebind input="js2_ "/>
   </action>
   <action name="v_deploy_landing_system">
@@ -243,17 +247,17 @@
    <rebind input="js2_ "/>
   </action>
   <action name="v_ifcs_toggle_vector_decoupling">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_c"/>
    <rebind input="js2_ "/>
   </action>
   <action name="v_lock_rotation">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_rshift"/>
   </action>
   <action name="v_master_mode_cycle">
    <rebind input="kb1_ "/>
   </action>
   <action name="v_master_mode_cycle_long">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_b"/>
   </action>
   <action name="v_pitch_down">
    <rebind input="kb1_ "/>
@@ -313,10 +317,10 @@
    <rebind input="js2_ "/>
   </action>
   <action name="v_strafe_trim_reset_long">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_x"/>
   </action>
   <action name="v_strafe_trim_reset_short">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_x"/>
   </action>
   <action name="v_strafe_trim_set_100_long">
    <rebind input="kb1_ "/>
@@ -350,21 +354,21 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_toggle_landing_system">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_n"/>
    <rebind input="js2_ "/>
   </action>
   <action name="v_toggle_relative_mouse_mode">
    <rebind input="kb1_ "/>
   </action>
   <action name="v_toggle_vtol">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_k"/>
   </action>
   <action name="v_toggle_yaw_roll_swap">
    <rebind input="kb1_ "/>
    <rebind input="js2_ "/>
   </action>
   <action name="v_transform_cycle">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+k"/>
   </action>
   <action name="v_transform_deploy">
    <rebind input="kb1_ "/>
@@ -386,13 +390,13 @@
  </actionmap>
  <actionmap name="spaceship_docking">
   <action name="v_dock_toggle_view">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_o"/>
   </action>
   <action name="v_invoke_docking">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_n"/>
   </action>
   <action name="v_toggle_docking_mode">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_n"/>
   </action>
  </actionmap>
  <actionmap name="spaceship_targeting">
@@ -409,7 +413,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_auto_targeting_toggle_long">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_t"/>
   </action>
   <action name="v_auto_targeting_toggle_short">
    <rebind input="kb1_ "/>
@@ -424,7 +428,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_look_ahead_enable">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+L"/>
   </action>
   <action name="v_look_ahead_start_target_tracking">
    <rebind input="kb1_ "/>
@@ -439,37 +443,37 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_target_remove_all_pins">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_0"/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_toggle_lock_index_1">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_1"/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_toggle_lock_index_2">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_2"/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_toggle_lock_index_3">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_3"/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_toggle_pin_index_1">
    <rebind input="kb1_ "/>
   </action>
   <action name="v_target_toggle_pin_index_1_hold">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+1"/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_toggle_pin_index_2">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+2"/>
   </action>
   <action name="v_target_toggle_pin_index_2_hold">
    <rebind input="kb1_ "/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_toggle_pin_index_3">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+3"/>
   </action>
   <action name="v_target_toggle_pin_index_3_hold">
    <rebind input="kb1_ "/>
@@ -494,45 +498,45 @@
    <rebind input="js1_  "/>
   </action>
   <action name="v_target_cycle_all_fwd">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_7"/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_cycle_all_reset">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_7"/>
   </action>
   <action name="v_target_cycle_attacker_back">
    <rebind input="kb1_ "/>
   </action>
   <action name="v_target_cycle_attacker_fwd">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_4"/>
   </action>
   <action name="v_target_cycle_attacker_reset">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_4"/>
   </action>
   <action name="v_target_cycle_friendly_back">
    <rebind input="kb1_ "/>
   </action>
   <action name="v_target_cycle_friendly_fwd">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_6"/>
   </action>
   <action name="v_target_cycle_friendly_reset">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_6"/>
   </action>
   <action name="v_target_cycle_hostile_back">
    <rebind input="kb1_ "/>
   </action>
   <action name="v_target_cycle_hostile_fwd">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_5"/>
   </action>
   <action name="v_target_cycle_hostile_reset">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_5"/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_cycle_in_view_back">
    <rebind input="kb1_ "/>
   </action>
   <action name="v_target_cycle_in_view_fwd">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_t"/>
    <rebind input="js1_ "/>
   </action>
   <action name="v_target_cycle_in_view_reset">
@@ -552,23 +556,23 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_target_cycle_subitem_fwd">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_r"/>
   </action>
   <action name="v_target_cycle_subitem_reset">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+r"/>
   </action>
   <action name="v_target_under_reticle">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_t"/>
   </action>
  </actionmap>
  <actionmap name="spaceship_target_hailing">
   <action name="v_target_hail">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_9"/>
   </action>
  </actionmap>
  <actionmap name="spaceship_radar">
   <action name="v_invoke_ping">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_tab"/>
    <rebind input="js1_ "/>
   </action>
  </actionmap>
@@ -594,19 +598,19 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_jettison_volatile_cargo">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+j"/>
   </action>
   <action name="v_mining_throttle">
    <rebind input="js2_ "/>
   </action>
   <action name="v_mining_use_consumable1">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+1"/>
   </action>
   <action name="v_mining_use_consumable2">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+2"/>
   </action>
   <action name="v_mining_use_consumable3">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+3"/>
   </action>
   <action name="v_toggle_mining_laser_fire">
    <rebind defaultInput="mouse1" input="kb1_ "/>
@@ -674,28 +678,28 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_salvage_reset_gimbal">
-   <rebind defaultInput=" " input="kb1_ "/>
+   <rebind defaultInput=" " input="kb1_lalt+g"/>
   </action>
   <action name="v_salvage_toggle_beam_spacing_axis">
    <rebind input="kb1_ "/>
   </action>
   <action name="v_salvage_toggle_fire_disintegrate">
-   <rebind defaultInput=" " input="kb1_ "/>
+   <rebind defaultInput=" " input="kb1_ralt+s"/>
   </action>
   <action name="v_salvage_toggle_fire_focused">
    <rebind defaultInput="mouse1" input="kb1_ "/>
   </action>
   <action name="v_salvage_toggle_fire_fracture">
-   <rebind defaultInput=" " input="kb1_ "/>
+   <rebind defaultInput=" " input="kb1_ralt+d"/>
   </action>
   <action name="v_salvage_toggle_fire_left">
-   <rebind defaultInput=" " input="kb1_ "/>
+   <rebind defaultInput=" " input="kb1_ralt+a"/>
   </action>
   <action name="v_salvage_toggle_fire_right">
-   <rebind defaultInput=" " input="kb1_ "/>
+   <rebind defaultInput=" " input="kb1_ralt+d"/>
   </action>
   <action name="v_salvage_toggle_gimbal_mode">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_g"/>
   </action>
  </actionmap>
  <actionmap name="turret_movement">
@@ -1055,7 +1059,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_power_throttle_down">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_s"/>
   </action>
   <action name="v_power_throttle_max">
    <rebind input="kb1_ "/>
@@ -1064,7 +1068,7 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="v_power_throttle_up">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_w"/>
   </action>
   <action name="v_power_toggle">
    <rebind input="kb1_ "/>

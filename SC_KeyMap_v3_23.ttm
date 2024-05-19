@@ -14,7 +14,7 @@
 define eject R_ALT+USB_Y                                        // Eject - explosively propels the pilot out of the cockpit
 define emergency_exit USB_U+L_SHIFT
 define operator_mode_cycle_back ''
-define operator_mode_cycle_forward
+define operator_mode_cycle_forward USB_1
 define set_flight_mode ''
 define set_guns_mode ''
 define set_mining_mode ''
@@ -29,7 +29,7 @@ define toggle_missile_mode ''
 define toggle_quantum_mode ''
 define toggle_salvage_mode USB_M
 define toggle_scan_mode USB_V
-define view_look_behind ''
+define view_look_behind USB_COMMA
 
 
 //  spaceship_general **********************
@@ -45,7 +45,7 @@ define open_all_doors ''
 define self_destruct USB_DELETEORBACKSPACE
 define toggle_all_doorlocks ''
 define toggle_all_doors ''
-define toggle_all_portlocks ''
+define toggle_all_portlocks USB_RIGHTALT+USB_K
 define unlock_all_doors ''
 define unlock_all_ports ''
 
@@ -69,13 +69,13 @@ define view_yaw_right  DXHATRIGHT                               // Look right - 
 
 define accel_range_down ''
 define accel_range_up ''
-define afterburner ''
-define atc_loading_area_request ''
-define atc_request ''
+define afterburner USB_LEFTSHIFT
+define atc_loading_area_request USB_RIGHTALT+USB_N
+define atc_request USB_LEFTALT+USB_N
 define auto_precision_mode_off ''
 define auto_precision_mode_on ''
 define auto_precision_mode_toggle ''
-define autoland ''
+define autoland USB_N
 define deploy_landing_system ''
 define ifcs_esp_hold ''
 define ifcs_gravity_compensation_off ''
@@ -85,14 +85,14 @@ define ifcs_gsafe_on ''
 define ifcs_speed_limiter_reset_scm ''
 define ifcs_throttle_set_normal ''
 define ifcs_throttle_set_sticky ''
-define ifcs_throttle_swap_mode ''
+define ifcs_throttle_swap_mode USB_LEFTALT+USB_C
 define ifcs_toggle_esp ''
 define ifcs_toggle_gforce_safety ''
 define ifcs_toggle_gravity_compensation ''
 define ifcs_toggle_speed_limiter ''
-define ifcs_toggle_vector_decoupling ''
-define lock_rotation ''
-define master_mode_cycle ''
+define ifcs_toggle_vector_decoupling USB_C
+define lock_rotation USB_RIGHTSHIFT
+define master_mode_cycle USB_B
 define master_mode_cycle_long ''
 define pitch_down ''
 define pitch_up ''
@@ -109,8 +109,8 @@ define strafe_lateral ''
 define strafe_left USB_A
 define strafe_longitudinal_invert ''
 define strafe_right USB_D
-define strafe_trim_reset_long ''
-define strafe_trim_reset_short ''
+define strafe_trim_reset_long USB_X
+define strafe_trim_reset_short USB_X
 define strafe_trim_set_100_long ''
 define strafe_trim_set_100_short ''
 define strafe_trim_set_50_long ''
@@ -121,11 +121,11 @@ define strafe_up USB_SPACEBAR
 define strafe_vertical ''
 define target_match_vel ''
 define toggle_jump_request ''
-define toggle_landing_system ''
+define toggle_landing_system USB_N
 define toggle_relative_mouse_mode ''
-define toggle_vtol ''
+define toggle_vtol USB_K
 define toggle_yaw_roll_swap ''
-define transform_cycle ''
+define transform_cycle USB_LEFTALT+USB_K
 define transform_deploy ''
 define transform_retract ''
 define yaw_left ''
@@ -141,9 +141,9 @@ define toggle_qdrive_engagement ''
 //  spaceship_docking **********************
 
 
-define dock_toggle_view ''
-define invoke_docking ''
-define toggle_docking_mode ''
+define dock_toggle_view USB_O
+define invoke_docking USB_N
+define toggle_docking_mode USB_N
 
 
 // spaceship_targeting **********************
@@ -153,28 +153,28 @@ define auto_targeting_disable_long ''
 define auto_targeting_disable_short ''
 define auto_targeting_enable_long ''
 define auto_targeting_enable_short ''
-define auto_targeting_toggle_long ''
+define auto_targeting_toggle_long USB_T
 define auto_targeting_toggle_short ''
 define enter_remote_turret_1 ''
 define enter_remote_turret_2 ''
 define enter_remote_turret_3 ''
-define look_ahead_enable ''
+define look_ahead_enable USB_LEFTALT+USB_L
 define look_ahead_start_target_tracking ''
 define target_lock_selected ''
 define target_pin_selected ''
 define target_pin_selected_hold ''
-define target_remove_all_pins ''
+define target_remove_all_pins USB_0
 define target_toggle_lock_index_1 ''
 define target_toggle_lock_index_2 ''
 define target_toggle_lock_index_3 ''
-define target_toggle_pin_index_1 ''
+define target_toggle_pin_index_1 USB_LEFTALT+USB_1
 define target_toggle_pin_index_1_hold ''
-define target_toggle_pin_index_2 ''
+define target_toggle_pin_index_2 USB_LEFTALT+USB_2
 define target_toggle_pin_index_2_hold ''
-define target_toggle_pin_index_3 ''
+define target_toggle_pin_index_3 USB_LEFTALT+USB_3
 define target_toggle_pin_index_3_hold ''
 define target_tracking_auto_zoom ''
-define target_unlock ''
+define target_unlock USB_LEFTALT+USB_T
 define target_unpin_selected ''
 define target_unpin_selected_hold ''
 
@@ -183,27 +183,27 @@ define target_unpin_selected_hold ''
 
 
 define target_cycle_all_back ''
-define target_cycle_all_fwd ''
-define target_cycle_all_reset ''
+define target_cycle_all_fwd USB_7
+define target_cycle_all_reset USB_7
 define target_cycle_attacker_back ''
-define target_cycle_attacker_fwd ''
-define target_cycle_attacker_reset ''
+define target_cycle_attacker_fwd USB_4
+define target_cycle_attacker_reset USB_4
 define target_cycle_friendly_back ''
-define target_cycle_friendly_fwd ''
-define target_cycle_friendly_reset ''
+define target_cycle_friendly_fwd USB_6
+define target_cycle_friendly_reset USB_6
 define target_cycle_hostile_back ''
-define target_cycle_hostile_fwd ''
-define target_cycle_hostile_reset ''
+define target_cycle_hostile_fwd USB_5
+define target_cycle_hostile_reset USB_5
 define target_cycle_in_view_back ''
-define target_cycle_in_view_fwd ''
+define target_cycle_in_view_fwd USB_T
 define target_cycle_in_view_reset ''
 define target_cycle_pinned_back ''
 define target_cycle_pinned_fwd ''
 define target_cycle_pinned_reset ''
 define target_cycle_subitem_back ''
-define target_cycle_subitem_fwd ''
-define target_cycle_subitem_reset ''
-define target_under_reticle ''
+define target_cycle_subitem_fwd USB_R
+define target_cycle_subitem_reset USB_LEFTALT+USB_R
+define target_under_reticle USB_T
 
 
 // spaceship_target_hailing ****************
@@ -215,7 +215,7 @@ define target_hail USB_9
 // spaceship_radar ****************
 
 
-define invoke_ping ''
+define invoke_ping USB_TAB
 
 
 // spaceship_scanning **********************
@@ -231,10 +231,10 @@ define scanning_trigger_scan ''
 
 define decrease_mining_throttle ''
 define increase_mining_throttle ''
-define jettison_volatile_cargo ''
-define mining_use_consumable1 ''
-define mining_use_consumable2 ''
-define mining_use_consumable3 ''
+define jettison_volatile_cargo USB_LEFTALT+USB_J
+define mining_use_consumable1 USB_LEFTALT+USB_1
+define mining_use_consumable2 USB_LEFTALT+USB_2
+define mining_use_consumable3 USB_LEFTALT+USB_3
 define toggle_mining_laser_fire ''
 define toggle_mining_laser_type ''
 
@@ -261,14 +261,14 @@ define salvage_nudge_right__left ''
 define salvage_nudge_right__right ''
 define salvage_nudge_up__lef ''
 define salvage_nudge_up__right ''
-define salvage_reset_gimbal ''
+define salvage_reset_gimbal USB_LEFTALT+USB_G
 define salvage_toggle_beam_spacing_axis ''
-define salvage_toggle_fire_disintegrate ''
+define salvage_toggle_fire_disintegrate USB_RIGHTALT+USB_S
 define salvage_toggle_fire_focused ''
-define salvage_toggle_fire_fracture ''
-define salvage_toggle_fire_left ''
-define salvage_toggle_fire_right ''
-define salvage_toggle_gimbal_mode ''
+define salvage_toggle_fire_fracture USB_RIGHTALT+USB_W
+define salvage_toggle_fire_left USB_RIGHTALT+USB_A
+define salvage_toggle_fire_right USB_RIGHTALT+USB_d
+define salvage_toggle_gimbal_mode USB_G
 
 
 // turret_movement ************************
@@ -412,10 +412,10 @@ define power_set_thrusters_off ''
 define power_set_thrusters_on ''
 define power_set_weapons_off ''
 define power_set_weapons_on ''
-define power_throttle_down ''
+define power_throttle_down USB_S
 define power_throttle_max ''
 define power_throttle_min ''
-define power_throttle_up ''
+define power_throttle_up USB_W
 define power_toggle ''
 define power_toggle_shields ''
 define power_toggle_thrusters ''
