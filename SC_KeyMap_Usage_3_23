@@ -1,10 +1,10 @@
 js1_slider2         v_mining_throttle
 
 
-DX1     attack1_group1
+DX1     attack_group1
         toggle_mining_laser_fire
         invoke_ping
-DX2     attack1_group2
+DX2     attack_group2
 DX3     
 DX4     weapon_launch_missile
 DX5     

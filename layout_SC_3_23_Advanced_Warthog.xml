@@ -772,10 +772,11 @@
   </action>
   <action name="v_attack_group1">
    <rebind defaultInput="mouse1" input="kb1_ "/>
+   <rebind input="js1_button1">
   </action>
   <action name="v_attack_group2">
    <rebind defaultInput="mouse2" input="kb1_ "/>
-   <rebind input="js1_ "/>
+   <rebind input="js1_button2"/>
   </action>
   <action name="v_weapon_ads_cycle_tracking">
    <rebind input="kb1_ "/>
@@ -1121,7 +1122,7 @@
  </actionmap>
  <actionmap name="player">
   <action name="ammoRepool">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_lalt+1"/>
   </action>
   <action name="attack1">
    <rebind defaultInput="mouse1" input="kb1_ "/>
@@ -1163,10 +1164,10 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="leanleft">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_q"/>
   </action>
   <action name="leanright">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_e"/>
   </action>
   <action name="ledgegrab">
    <rebind input="kb1_ "/>
@@ -1202,16 +1203,16 @@
    <rebind input="kb1_ "/>
   </action>
   <action name="moveback">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_s"/>
   </action>
   <action name="moveforward">
-   <rebind input="kb1_"/>
+   <rebind input="kb1_w"/>
   </action>
   <action name="moveleft">
-   <rebind input="kb1_"/>
+   <rebind input="kb1_a"/>
   </action>
   <action name="moveright">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_d"/>
   </action>
   <action name="pl_hud_open_scoreboard">
    <rebind input="kb1_ "/>
@@ -1318,10 +1319,10 @@
  </actionmap>
  <actionmap name="prone">
   <action name="prone_rollleft">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_a"/>
   </action>
   <action name="prone_rollright">
-   <rebind input="kb1_ "/>
+   <rebind input="kb1_d"/>
   </action>
  </actionmap>
  <actionmap name="tractor_beam">

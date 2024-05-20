@@ -303,8 +303,8 @@ define turret_recenter USB_C
 
 
 define attack_all ''
-define attack_group1 ''
-define attack_group2 ''
+define attack_group1 DX1
+define attack_group2 DX2
 define weapon_ads_cycle_tracking ''
 define weapon_ads_hold ''
 define weapon_ads_stable_max_zoom_hold ''
@@ -464,8 +464,8 @@ define free_thirdperson_camera ''
 define holster ''
 define inspect ''
 define jump ''
-define leanleft ''
-define leanright ''
+define leanleft USB_Q
+define leanright USB_E
 define ledgegrab ''
 define melee_AttackHeavyLeft ''
 define melee_AttackHeavyRight ''
@@ -481,10 +481,10 @@ define melee_dodgeRight ''
 // define mobiglas ''
 
 
-define moveback ''
-define moveforward ''
-define moveleft ''
-define moveright ''
+define moveback USB_S
+define moveforward USB_W
+define moveleft USB_A
+define moveright USB_D
 define pl_hud_open_scoreboard ''
 define port_modification_selec ''
 define prone ''
