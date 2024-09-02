@@ -4,14 +4,14 @@
 
 include "target.tmh"
 include "SC_USBKeyMap.ttm"
-include "SC_KeyMap_v3_23.ttm"
-include "SC_Variables_v3_23.tmh"
-include "SC_UserPrefs_v3_23.tmh"
-include "SC_Defaults_v3_23.tmh"
-include "SC_Hardware_v3_23.tmh"
-include "SC_Functions_v3_23.tmh"
-include "SC_Macros_v3_23.tmh"
-include "SC_LED_v3_23.tmh"
+include "SC_KeyMap_v3_24.ttm"
+include "SC_Variables_v3_24.tmh"
+include "SC_UserPrefs_v3_24.tmh"
+include "SC_Defaults_v3_24.tmh"
+include "SC_Hardware_v3_24.tmh"
+include "SC_Functions_v3_24.tmh"
+include "SC_Macros_v3_24.tmh"
+include "SC_LED_v3_24.tmh"
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------//
 // START-UP:  / MAIN                                                                                                                                            //
@@ -141,7 +141,7 @@ Configure(&TFRPHARudder, MODE_EXCLUDED);
                 0,                                                                                              // PSF, if shift button In
                 0,                                                                                              // PSF, if shift button Out
                 0,                                                                                              // PSM, if shift button In
-                attack_group1, // fire group 1                                                                 // PSM, if shift button Out
+                attack_group1, // fire group 1                                                                  // PSM, if shift button Out
                 0,                                                                                              // PSB, if shift button In
                 toggle_mining_laser_fire);                                                                      // PSB, if shift button Out
 
@@ -150,7 +150,7 @@ Configure(&TFRPHARudder, MODE_EXCLUDED);
                 0,                                                                                              // PSF, if shift button In
                 0,                                                                                              // PSF, if shift button Out
                 0,                                                                                              // PSM, if shift button In
-                attack_group2, // fire group 2                                                                 // PSM, if shift button Out
+                attack_group2, // fire group 2                                                                  // PSM, if shift button Out
                 0,                                                                                              // PSB, if shift button In
                 0);                                                                                             // PSB, if shift button Out
 
@@ -167,8 +167,8 @@ Configure(&TFRPHARudder, MODE_EXCLUDED);
     MapKeyIOUMD(&Joystick, S2,                                                              // Joystick S2
                 0,                                                                                              // PSF, if shift button In
                 0,                                                                                              // PSF, if shift button Out
-                weapon_toggle_launch_missile,                                                                           // PSM, if shift button In
-                TEMPO(PULSE + toggle_missile_mode,  weapon_launch_missile, MediumPulseDelay),                    // PSM, if shift button Out
+                weapon_toggle_launch_missile,                                                                   // PSM, if shift button In
+                TEMPO(PULSE + toggle_missile_mode,  weapon_launch_missile, MediumPulseDelay),                   // PSM, if shift button Out
                 0,                                                                                              // PSB, if shift button In
                 TEMPO(PULSE + toggle_scan_mode,  invoke_ping, MediumPulseDelay));                               // PSB, if shift button Out
 
@@ -417,7 +417,7 @@ Configure(&TFRPHARudder, MODE_EXCLUDED);
                 0,                                                                                                              // PSM, if shift button In
                 TEMPO(PULSE + view_cycle_fwd, PULSE + view_mode, MediumPulseDelay),                                             // PSM, if shift button Out
                 0,                                                                                                              // PSB, if shift button In
-                TEMPO(PULSE + view_cycle_fwd, PULSE + view_mode, MediumPulseDelay));                                           // PSB, if shift button Out
+                TEMPO(PULSE + view_cycle_fwd, PULSE + view_mode, MediumPulseDelay));                                            // PSB, if shift button Out
     MapKeyIOUMD(&Throttle, CSL,
                 0,                                                                                                              // PSF, if shift button In
                 0,                                                                                                              // PSF, if shift button Out
@@ -490,7 +490,7 @@ Configure(&TFRPHARudder, MODE_EXCLUDED);
                 0,                                                                                // PSF, if shift button In
                 0,                                                                                // PSF, if shift button Out
                 jettison_volatile_cargo,                                                          // PSM, if shift button In
-                TEMPO(PULSE + toggle_quantum_mode, toggle_qdrive_engagement, ShortPulseDelay), // PSM, if shift button Out
+                TEMPO(PULSE + toggle_quantum_mode, toggle_qdrive_engagement, ShortPulseDelay),    // PSM, if shift button Out
                 0,                                                                                // PSB, if shift button In
                 v_lights);                                                                        // PSB, if shift button Out
 

@@ -1,5 +1,5 @@
-<ActionMaps version="1" optionsVersion="2" rebindVersion="2" profileName="SC_3_23_Advanced_Warthoge">
- <CustomisationUIHeader label="SC_3_23_Advanced_Warthog" description="Buttons<>Brains" image="">
+<ActionMaps version="1" optionsVersion="2" rebindVersion="2" profileName="SC_3_24_Advanced_Warthog">
+ <CustomisationUIHeader label="SC_3_24_Advanced_Warthog" description="Buttons_Brains" image="">
   <devices>
    <keyboard instance="1"/>
    <mouse instance="1"/>
