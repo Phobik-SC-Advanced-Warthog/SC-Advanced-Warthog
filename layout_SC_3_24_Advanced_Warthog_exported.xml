@@ -10,20 +10,7 @@
    <joystick instance="5"/>
   </devices>
   <categories>
-   <category label="@ui_CCSeatGeneral"/>
-   <category label="@ui_CCSpaceFlight"/>
-   <category label="@ui_CCTurrets"/>
-   <category label="@ui_CGLightControllerDesc"/>
-   <category label=""/>
-   <category label="@ui_CCFPS"/>
-   <category label="@ui_CCEVA"/>
-   <category label="@ui_CCEVAZGT"/>
-   <category label="@ui_CCVehicle"/>
-   <category label="@ui_CGEASpectator"/>
-   <category label="@ui_CGUIGeneral"/>
-   <category label="@ui_CGOpticalTracking"/>
-   <category label="@ui_CGInteraction"/>
-   <category label="@ui_CCCamera"/>
+
   </categories>
  </CustomisationUIHeader>
  <options type="keyboard" instance="1" Product="Keyboard  {6F1D2B61-D5A0-11CF-BFC7-444553540000}"/>
