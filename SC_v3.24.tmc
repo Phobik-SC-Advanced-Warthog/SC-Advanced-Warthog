@@ -179,6 +179,18 @@ int EventHandle(int type, alias o, int x)
         initBACKLIGHT(LMFD_BL, vLMFDLightBackup);
     }
 
+        // Throttle & MFD : On-The-FLy Backlight Control
+    if(&o == &Throttle & x == THR_FC &AVA_F16[S4])      //HOLD S4 on Joystick & Move Throttle Friction Control Axis
+    {
+        THR_FC_AxisLight = (AxisVal(Throttle[THR_FC], &axdata) - 32766) / 256 * -1;
+        vThrottleLightBackup = THR_FC_AxisLight;
+        vRMFDLightBackup     = THR_FC_AxisLight;
+        vLMFDLightBackup     = THR_FC_AxisLight;
+        initBACKLIGHT(Throttle_BL, vThrottleLightBackup);
+        initBACKLIGHT(RMFD_BL, vRMFDLightBackup);
+        initBACKLIGHT(LMFD_BL, vLMFDLightBackup);
+    }
+
 // This Takes Axis Data from Connected Controllers and Passes Through Axis to bypass 8 Axis DX Limit
 // Also Applies Custom Curves to match Stick and Throttle to exported axis
 
