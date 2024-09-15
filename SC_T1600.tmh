@@ -1,0 +1,151 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--T16000 Mapping------------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Hat Switch -- //
+
+    MapKeyIOUMD(&T16000, H1U,                                                             // Trim Switch UP
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, H1D,                                                             // Trim Switch DOWN
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, H1L,                                                             // Trim Switch LEFT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, H1R,                                                             // Trim Switch RIGHT
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+
+// -- Stick Buttons -- //
+
+    MapKeyIOUMD(&T16000, TS1,                                                             // Stick Trigger
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, TS2,                                                             // Stick Button 2
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, TS3,                                                             // Stick Button 3
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, TS4,                                                             // Stick Button 4
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+// -- Base Buttons -- //
+
+    MapKeyIOUMD(&T16000, B5,                                                             // Base Button 5
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B6,                                                             // Base Button 6
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B7,                                                             // Base Button 7
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B8,                                                             // Base Button 8
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B9,                                                             // Base Butto 9
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B10,                                                             // Base Button 10
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B11,                                                             // Base Button 11
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B12,                                                             // Base Button 12
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B13,                                                             // Base Button 13
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_up,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B14,                                                             // Base Button 14
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_pitch_down,                                                                                // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B15,                                                             // Base Button 15
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_left,                                                                                  // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&T16000, B16,                                                             // Base Button 16
+                0,                                                                                              // PSF, if shift button In
+                0,                                                                                              // PSF, if shift button Out
+                0,                                                                                              // PSM, if shift button In
+                view_yaw_right,                                                                                 // PSM, if shift button Out
+                0,                                                                                              // PSB, if shift button In
+                0);                                                                                             // PSB, if shift button Out

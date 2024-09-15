@@ -10,6 +10,11 @@
         MapAxis(&Joystick,            0, MOUSE_X_AXIS,    AXIS_NORMAL, MAP_ABSOLUTE);  // Bind to Null Un Used
         MapAxis(&Joystick,            0, MOUSE_Y_AXIS,    AXIS_NORMAL, MAP_ABSOLUTE);
         MapAxis(&Joystick,            0, MOUSE_Z_AXIS,    AXIS_NORMAL, MAP_RELATIVE);
+        MapAxis(&AVA_F16,         JOYX,    DX_X_AXIS,    AXIS_NORMAL, MAP_ABSOLUTE);  // Set Joystick Control X Axis
+        MapAxis(&AVA_F16,         JOYY,    DX_Y_AXIS,    AXIS_NORMAL, MAP_ABSOLUTE);  // Set Joystick Control Y Axis
+        MapAxis(&AVA_F16,            0, MOUSE_X_AXIS,    AXIS_NORMAL, MAP_ABSOLUTE);  // Bind to Null Un Used
+        MapAxis(&AVA_F16,            0, MOUSE_Y_AXIS,    AXIS_NORMAL, MAP_ABSOLUTE);
+        MapAxis(&AVA_F16,            0, MOUSE_Z_AXIS,    AXIS_NORMAL, MAP_RELATIVE);
 
       if(CenterJoystickMount){  //  Rotate Joystick Axis to account for center mounting position
             RotateDXAxis(DX_X_AXIS, DX_Y_AXIS, JoystickAngle);

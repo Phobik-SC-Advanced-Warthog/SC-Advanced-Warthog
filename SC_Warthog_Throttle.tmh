@@ -1,0 +1,234 @@
+int initThrottle()
+    {
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE ARM BUTTON-----------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+    MapKeyIOUMD(&Throttle, SC,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                0,                                                                                                              // PSM, if shift button In
+                0,                                                                                                              // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                0);                                                                                                             // PSB, if shift button Out
+
+//  -------------------------Left Throttle Button (RED) LTB
+
+    MapKeyIOUMD(&Throttle, LTB,
+                0,                                                                                                              // PSF, if shift button In
+                visor_wipe,                                                                                                     // PSF, if shift button Out
+                TEMPO(PULSE + strafe_longitudinal_invert, PULSE + strafe_longitudinal_invert, ShortPulseDelay),                 // PSM, if shift button In
+                toggle_vtol,                                                                                                    // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                toggle_vtol);                                                                                                   // PSB, if shift button Out
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE ARM HAT--------------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+//  -- Mic Switch -- //
+
+    MapKeyUMD(&Throttle, MSD, power_throttle_down, shield_raise_level_down, 0); // Decrease Power / Shield Bot
+    MapKeyIOUMD(&Throttle, MSU,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                power_throttle_up,                                                                                              // PSM, if shift button In
+                shield_raise_level_up,                                                                                          // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                0);                                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, MSD,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                power_throttle_down,                                                                                            // PSM, if shift button In
+                shield_raise_level_down,                                                                                        // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                0);                                                                                                             // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, MSL,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                target_hail,                                                                                                    // PSM, if shift button In
+                TrackIRCenter,                                                                                                  // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                toggle_relative_mouse_mode);                                                                                    // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, MSR,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                view_freelook_mode,                                                                                             // PSM, if shift button In
+                target_match_vel,                                                                                               // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                0);                                                                                                             // PSB, if shift button Out
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  -- Push to Talk & Comms ------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Mic Switch MSP -- //
+
+    MapKey(&Throttle, MSP, EXEC("initVoicePTT();"));
+    MapKeyR(&Throttle, MSP, EXEC("initVoicePTT();"));
+
+
+// -- Coolie Hat Switch -- //
+
+    MapKeyIOUMD(&Throttle, CSU,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                look_ahead_enable,                                                                                              // PSM, if shift button In
+                view_look_behind,                                                                                               // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                mining_use_consumable2);                                                                                        // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, CSD,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                0,                                                                                                              // PSM, if shift button In
+                TEMPO(PULSE + view_cycle_fwd, PULSE + view_mode, MediumPulseDelay),                                             // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                TEMPO(PULSE + view_cycle_fwd, PULSE + view_mode, MediumPulseDelay));                                            // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, CSL,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                0,                                                                                                              // PSM, if shift button In
+                0,                                                                                                              // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                mining_use_consumable1);                                                                                        // PSB, if shift button Out
+    MapKeyIOUMD(&Throttle, CSR,
+                0,                                                                                                              // PSF, if shift button In
+                0,                                                                                                              // PSF, if shift button Out
+                0,                                                                                                              // PSM, if shift button In
+                0,                                                                                                              // PSM, if shift button Out
+                0,                                                                                                              // PSB, if shift button In
+                mining_use_consumable3);                                                                                        // PSB, if shift button Out
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE ARM SWITCH-----------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Speedbrake -- //
+
+    MapKey(&Throttle, SPDF, space_brake);
+    MapKey(&Throttle, SPDB, afterburner);
+
+// -- Boat Switch -- //
+
+    MapKey(&Throttle, BSB, EXEC("initToggleDecouple();"));                                                                      // Decouple
+    MapKey(&Throttle, BSM, EXEC("initToggleDecouple(); set_throttle_norm();"));                                                 // Coupled  (BSM on)
+    MapKey(&Throttle, BSF, EXEC("initToggleDecouple(); set_throttle_strafe();"));                                               // Decouple and enable longitudinal strafe on THR
+
+// -- China Hat -- //
+
+    MapKey(&Throttle, CHB, TEMPO(PULSE + ifcs_toggle_gforce_safety,                                                             // Short:
+                                 PULSE + ifcs_toggle_speed_limiter, MediumPulseDelay));                                         // Long:
+    MapKey(&Throttle, CHF, TEMPO(PULSE + ifcs_toggle_esp,                                                                       // Short:
+                                 PULSE + ifcs_toggle_esp, MediumPulseDelay));                                                   // Long:
+
+// -- Pinky Throttle -- //
+
+// PSF PSB Used for Mode Selection
+// Extra Functions to apply durring mode seclection can be mapped to Binds Here
+
+//    MapKey(&Throttle, PSB, DOWN + );
+//    MapKeyR(&Throttle, PSB, UP + );
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//  MAP THROTTLE BASE CONTROLS                                                                                                                                  //
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE BASE TRHOTTLE--------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Throttle Idle Detents LEFT -- //
+
+    MapKey(&Throttle, IDLELON, 0);
+    MapKey(&Throttle, IDLELOFF, 0);
+
+// -- Throttle Idle Detents RIGHT -- //
+
+// -- Engine Power Off (Pull back on throttle) -- //
+
+    MapKey(&Throttle, IDLERON, PULSE + power_toggle_thrusters);
+    MapKey(&Throttle, IDLEROFF, PULSE + power_toggle_thrusters);
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE BASE BUTTON----------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- Landing Gear/ Warning Horn Silence Button LDGH -- //
+
+    MapKeyIOUMD(&Throttle, LDGH,
+                0,                                                                                // PSF, if shift button In
+                0,                                                                                // PSF, if shift button Out
+                jettison_volatile_cargo,                                                          // PSM, if shift button In
+                TEMPO(PULSE + toggle_quantum_mode, toggle_qdrive_engagement, ShortPulseDelay),    // PSM, if shift button Out
+                0,                                                                                // PSB, if shift button In
+                v_lights);                                                                        // PSB, if shift button Out
+
+
+//  ----- Autopilot Engage Button Six States Controlled by ALT/HDG Select-----  //
+
+    MapKey(&Throttle,  APENG, TEMPO(EXEC("initAPmode(AP_SHORT);"), EXEC("initAPmode(AP_LONG);"), MediumPulseDelay));
+    MapKeyR(&Throttle, APENG, EXEC("initAPmode(AP_RELEASE);"));
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+//--THROTTLE BASE SWITCH----------------------------------------------------------------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------//
+
+// -- FLAPS - Map Throttle to Joystick Curve Presets -- //
+
+    MapKey(&Throttle, FLAPU, EXEC("initSetJoystickCurves();"));
+    MapKeyR(&Throttle, FLAPU, EXEC("initSetJoystickCurves();"));
+    MapKey(&Throttle, FLAPM, 0);
+    MapKey(&Throttle, FLAPD, EXEC("initSetJoystickCurves();"));
+    MapKeyR(&Throttle, FLAPD, EXEC("initSetJoystickCurves();"));
+
+// -- Autopilot Select Switch -- //
+
+// Function for APPAT APALT controls modes set on APENG
+
+    MapKey(&Throttle, APPAT, 0);
+    MapKeyR(&Throttle, APPAT, 0);
+    MapKey(&Throttle, APALT, 0);
+    MapKey(&Throttle, APDIS, 0);
+    MapKey(&Throttle, APAH, 0);
+
+// -- Engine Fuel Flow Switches LEFT (EFLNORM/EFLOVER) -- //
+
+    MapKey(&Throttle, EFLNORM, 0);
+    MapKeyR(&Throttle, EFLNORM, 0);
+
+// -- Engine Fuel Flow Switches RIGHT (EFRNORM/EFROVER) -- //
+
+    MapKey(&Throttle,  EFRNORM, PULSE + toggle_yaw_roll_swap);
+    MapKeyR(&Throttle, EFRNORM, PULSE + toggle_yaw_roll_swap);
+
+// -- Engine Operate Ign/Norm LEFT -- //
+
+
+
+    MapKey(&Throttle, EOLIGN, toggle_contact);
+    MapKey(&Throttle, EOLNORM, 0);
+    MapKey(&Throttle, EOLMOTOR, 0);
+    MapKeyR(&Throttle, EOLMOTOR, 0);
+
+// -- Engine Operate Ign/Norm RIGHT -- //
+
+    MapKey(&Throttle, EORNORM, 0);
+    MapKey(&Throttle,  EORMOTOR, PULSE + mobiglas);
+    MapKeyR(&Throttle, EORMOTOR, PULSE + mobiglas);
+    MapKey(&Throttle, EORIGN, PULSE + starmap);
+
+// -- APU Start APUON/APUOFF -- //
+
+// -- EJECT EJECT EJECT -- //
+
+    MapKey(&Throttle, APUON, TEMPO(0, PULSE + eject, EJECT_DELAY)); // EJECT 2 sec delay
+    MapKey(&Throttle, APUOFF, PULSE + 'x');                         // Reset (x)
+
+// -- EAC EACON/EACOFF -- //
+
+    MapKey(&Throttle, EACON, DOWN + pc_interaction_mode);   // Hold Action
+    MapKey(&Throttle, EACOFF,  UP + pc_interaction_mode);   // Release Action
+
+// -- RDR ALTM RDRNRM/RDRDIS -- //
+
+    MapKey(&Throttle, RDRNRM, EXEC("toggle_fire_group();")); // Swap TG1 and TG2 group assignments
+    MapKey(&Throttle, RDRDIS, EXEC("toggle_fire_group();"));
+    };
+
